@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="espriter_practice">
+    <wb-module deploy-name="espriter_blog_practice">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="espriter_practice"/>
-        <property name="java-output-path" value="/espriter_practice/bin"/>
+        <property name="java-output-path" value="/espriter_blog_practice/bin"/>
+        <property name="context-root" value="espriter_blog_practice"/>
     </wb-module>
 </project-modules>

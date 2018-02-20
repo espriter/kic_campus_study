@@ -2,15 +2,15 @@ package pack2;
 
 public class Para1Class {
 	private String message;
-	
-	private String getMessage() {
+
+	public String getMessage() {
 		return message;
 
 	}
-	
-	private void setMessage(String message) {
+
+	public void setMessage(String message) {
 		this.message = message;
 
 	}
-	
+
 }

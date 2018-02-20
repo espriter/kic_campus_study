@@ -10,6 +10,6 @@
 <body style="background-color:black;">
 <b style=:color:yellow font-size: 40px">로그인 실패</b>
 <br>
-<a href="session_login.html" style="color: white;"> 다시 로그인</a> <!-- 다시 로그인 -->
+<a href="session_login.html" style="color: white;"> 다시 로그인</a> <!-- 다시 로그인1 -->
 </body>
 </html>

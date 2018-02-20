@@ -19,7 +19,7 @@
 <br>
 
 <jsp:include page="intag2.jsp">
-<jsp:param value="korea" name="msg"/> <!-- param에 korea라는 값을 전달1 -->
+<jsp:param value="korea" name="msg"/> <!-- param에 korea라는 값을 전달 -->
 </jsp:include>
 
 

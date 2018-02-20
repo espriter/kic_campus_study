@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+#btnOk { 
+	border : 5px solid blue;
+}
+.btnCancel{
+	border :5px dotted red;
+}
+
+</style>
+
+<script type="text/javascript">
+window.onload = function() { // function aa로 보냄
+	//document.getElementById("btnOk").onclick = aa;
+	document.getElementById("btnOk").addEventListener("click",aa,false);
+}
+
+function aa() {
+	//alert("aa");
+	if(frm.name.value === ""){ //입력값이 "" 즉 아무 것도 없으면
+		frm.name.focus(); // 포커스를 여기에 다시 놓고
+		alert("이름 입력") // 이름 입력하라는 메시지
+	}
+	
+	if(frm.age.value === "" || frm.age.value < 20){ //입력값이 "" 즉 아무 것도 없고, 20보다 값이 작으면
+			frm.age.focus(); // 포커스를 여기에 다시 놓고
+			alert("나이는 20이상만 입력!") // 이름 입력하라는 메시지
+		}
+	//frm.action = "GetData"; // 이렇게도 가능
+	//frm.method = "get"; // 이렇게도 가능
+	frm.submit();
+}
+
+</script>
+
+
+</head>
+<body>
+<h2>get test</h2>
+<form action="../getData" method="get" name="frm">
+<div>
+이름 : <input type ="text" name="name" size="10"><br>
+주소 : <input type ="text" name="addr" size="30"><br>
+나이 : <input type ="text" name="age" size="3"><br>
+</div>
+<br>
+<input type="button" id="btnOk" value="자료전송">
+<input type="reset" class="btnCancel" value="입력 취소">
+
+</form>
+</body>
+</html>

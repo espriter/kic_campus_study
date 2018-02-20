@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload = function() {
+	document.getElementById("btnOk").onclick = function() {
+		frm.submit();
+	}
+}
+</script>
+
+</head>
+<body>
+
+<table>
+	<tr>
+	<td>
+	<img src="../image/2.jpg" width="40%" title="빨리 눌러">
+	</td>	
+	</tr>
+	<pre>
+좋은 손전등입니다.
+판매가 : 1000원
+최대 혜택가 : 500원
+	</pre>
+	<tr>
+	<td colspan="2">
+		<form action="../Cart" name="frm" method="post">
+		<input type="hidden" name="sangname" value="손전등">
+		<input type="hidden" name="price" value="1000">
+		<input type="button" name="btnOk" value="장바구니에 담기">
+		<input type="button" name="btnCancel" value="홈페이지로 이동" onclick="history.back()">
+		
+		</form>
+		</td>	
+	</tr>
+</table>
+
+</body>
+</html>

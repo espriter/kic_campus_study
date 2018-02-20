@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h2>Post 테스트</h2>
+<form action="../PostData" method="post">
+이름 : <input type="text" name="name" value="한국인"><br>
+주소1 : <input type="text" name="addr" value="강남구"><br>
+주소2 : <input type="text" name="addr" value="역삼동"><br>
+<!--  check box -->
+현재 사용 가능한 언어는?<br>
+<input type="checkbox" name="Lang" value="C언어">C언어 
+<input type="checkbox" name="Lang" value="JAVA">자바 
+<input type="checkbox" name="Lang" value="Python">파이썬<br>
+
+<!-- 라디오 버튼 // 버튼 1개는 반드시 선택해놓아야 만 함 -->
+당신의 운영체제는 뭡네까?<br>
+<input type="radio" name="os" value="윈도우" checked="checked">윈도우&nbsp; 
+<input type="radio" name="os" value="리눅스">리눅스&nbsp;
+<input type="radio" name="os" value="맥">맥OS&nbsp;
+<br>
+<!-- 셀렉트 -->
+현재 이용중인 교통수단은?<br>
+<select name="tr">
+<option>버스</option>
+<option>기차</option>
+<option>비행기</option>
+</select>
+<br>
+<!-- hidden 히든 노출되지 않는 전송값 -->
+<input type = "hidden" name="etc" value="숨겨서 전달">
+<br>
+<input type ="submit" value="자료전송">
+</form>
+
+
+</body>
+</html>

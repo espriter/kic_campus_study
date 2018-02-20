@@ -1,7 +1,10 @@
 package pack2;
 
 public class Gugudan { // 구구단 처리용 클래스
-
+	private static Gugudan gugudan = new Gugudan();
+	public static Gugudan getInstance() {
+		return gugudan;
+	}
 	public Gugudan() {
 
 	}

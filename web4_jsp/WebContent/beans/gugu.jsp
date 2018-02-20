@@ -1,3 +1,4 @@
+<%@page import="pack2.Gugudan"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -20,5 +21,16 @@ for(int a = 0; a < 9; a++){
 out.println(dan + " * " + (a + 1 ) + "=" + gu[a] + "&nbsp;&nbsp;");
 }
 %>
+
+<hr>
+<%
+// 2. 계산처리를 별도 클래스로 작성 후 불러다 쓰기
+Gugudan gugudan = new Gugudan();
+int re[] = gugudan.compute(dan);
+for(int a = 0; a< 9; a++){
+	out.println(dan + "*" + (a + 1) + "=" + re[a] + "&nbsp;&nbsp;");
+}
+%>
+
 </body>
 </html>

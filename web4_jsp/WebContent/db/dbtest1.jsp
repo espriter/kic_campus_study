@@ -14,9 +14,7 @@
     	pstmt = conn.prepareStatement("select * from sangdata");
     	
     	rs = pstmt.executeQuery();
-    }catch(Exception e){
-    	System.out.println("err : " + e);
-    }
+    
     
     
     %>
@@ -35,9 +33,18 @@
 	%>
 	<tr>
 		<td><%out.println(rs.getString("code")); %></td>
+		<td><%rs.getString("sang"); %></td>
+		<td><%rs.getString("su"); %></td>
+		<td><%rs.getString(3); %></td>
 	</tr>	
 	<%
 	}
+	rs.close();
+	pstmt.close();
+	conn.close();
+    }catch(Exception e){
+    	System.out.println("err : " + e);
+    }
 	%>
 
 </body>

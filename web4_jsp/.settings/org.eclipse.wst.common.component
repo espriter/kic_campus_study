@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="web4_jsp">
+        
+    <wb-module deploy-name="espriter_kic_practice">
+                
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+                
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="web4_jsp"/>
-        <property name="java-output-path" value="/web4_jsp/build/classes"/>
+                
+        <property name="java-output-path" value="/espriter_kic_practice/build/classes"/>
+        <property name="context-root" value="espriter_kic_practice"/>
+            
     </wb-module>
+    
 </project-modules>

@@ -123,20 +123,17 @@ public class DbcpProcess { //jsp에서 호출될 BL class
 		}
 		return dto;
 	}
-	public boolean updateDataOk(SangpumBean bean) {
+
+	public boolean deleteData(String code) {
 		boolean b = false;
 		try {
 			conn = ds.getConnection();
-			String sql = "update sangdata set sang=?, su=?, dan=? where code=?";
+			String sql = "delete from sangdata where code = ?";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, bean.getSang());
-			pstmt.setString(2, bean.getSu());
-			pstmt.setString(3, bean.getDan());
-			pstmt.setString(4, bean.getCode());
-			if(pstmt.executeUpdate() > 0) b = true;
-			
+			pstmt.setString(1, code);
+			if(pstmt.executeUpdate() > 0 ) b = true;
 		} catch (Exception e) {
-			System.out.println("updateDataOk:" + e);
+			System.out.println("deleteData err : " + e);
 		}finally {
 			try {
 				if(rs != null) rs.close();
@@ -149,10 +146,6 @@ public class DbcpProcess { //jsp에서 호출될 BL class
 		return b;
 	}
 }
-
-
-
-
 
 
 

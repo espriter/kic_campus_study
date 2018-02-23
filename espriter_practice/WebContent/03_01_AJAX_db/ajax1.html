@@ -3,10 +3,83 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+	window.onload = function() {
+		document.getElementById("btnOk").onclick = function() {
+			startXhr();
+		}
+		document.getElementById("btnOk2").onclick = function() {
+			startXhr2();
+		}
+	}
+	var xhr;
+	function startXhr() {
+		//alert("aa");
+		xhr = new XMLHttpRequest();
+
+		xhr.open("get", "a1.xml", true); // 비동기 방식으로 읽겠다는 뜻
+		xhr.onreadystatechange = function() {
+			if (xhr.readyState == 4) {
+				if (xhr.status == 200) {
+					process_data();
+				} else {
+					alert("요청 실패 : " + xhr.status);
+				}
+			}
+		}
+		xhr.send(null);
+	}
+	
+	function startXhr2() {
+		//alert("aa");
+		xhr = new XMLHttpRequest();
+
+		xhr.open("get", "a1.jsp", true); // 비동기 방식으로 읽겠다는 뜻
+		xhr.onreadystatechange = function() {
+			if (xhr.readyState == 4) {
+				if (xhr.status == 200) {
+					process_data();
+				} else {
+					alert("요청 실패 : " + xhr.status);
+				}
+			}
+		}
+		xhr.send(null);
+	}
+	
+
+	function process_data() {
+		var data = xhr.responseXML;
+		//alert(data);
+		var sangpumNode = data.getElementsByTagName("sangpum");
+		var codeNode = data.getElementsByTagName("code");
+		var sangNode = data.getElementsByTagName("sang");
+		var suNode = data.getElementsByTagName("su");
+		var danNode = data.getElementsByTagName("dan");
+
+		var str = "<table border='1'>";
+
+		str += "<tr><th>코드</th><th>품명</th><th>수량</th><th>단가</th></tr>";
+		for (var i = 0; i < sangpumNode.length; i++) {
+			str += "<tr>";
+			str += "<td>" + codeNode[i].childNodes[0].nodeValue + "</td>";
+			str += "<td>" + sangNode[i].childNodes[0].nodeValue + "</td>";
+			str += "<td>" + suNode[i].childNodes[0].nodeValue + "</td>";
+			str += "<td>" + danNode[i].childNodes[0].nodeValue + "</td>";
+			str += "</tr>";
+		}
+		str += "</table>";
+		document.getElementById("disp").innerHTML = str;
+
+	}
+</script>
 </head>
 <body>
-<button id="btnOk">Ajax로 XML 읽기</button>
-<br>
-<div id ="disp"></div>
+	<button id="btnOk">Ajax로 XML 읽기</button>
+	<button id="btnOk2">Ajax로 XML 읽기(DB)</button>
+	<br>
+	<br>
+
+	<div id="disp"></div>
 </body>
 </html>

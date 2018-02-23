@@ -35,7 +35,7 @@ function funcDelete(){
 <h2>상품 자료(Beans + Dbcp)</h2>
 <a href="dbcp_ins.html">추가</a>&nbsp;
 <a href="javascript:funcUpdate()">수정</a>&nbsp;
-<!-- <a href="javascript:funcDelete()">삭제</a>  -->
+<a href="javascript:funcDelete()">삭제</a> 
 <br>
 <table border="1">
   <tr><th>코드</th><th>상품명</th><th>수량</th><th>단가</th></tr>

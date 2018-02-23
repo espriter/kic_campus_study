@@ -93,26 +93,24 @@ public class DbcpProcess { //jsp에서 호출될 BL class
 	}
 	
 	public SangpumDto updateData(String code) {
-		SangpumDto dto =null;
+		SangpumDto dto = null;
 		String sql = "";
 		try {
 			sql = "select * from sangdata where code=?";
 			conn = ds.getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1,  code);
+			pstmt.setString(1, code);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				dto = new SangpumDto();
-					dto = new SangpumDto();
-					dto.setCode(rs.getString(1));
-					dto.setSang(rs.getString(2));
-					dto.setSu(rs.getString(3));
-					dto.setDan(rs.getString(4));
+				dto.setCode(rs.getString(1));
+				dto.setSang(rs.getString(2));
+				dto.setSu(rs.getString(3));
+				dto.setDan(rs.getString(4));
 			}
-			
 		} catch (Exception e) {
-			System.out.println("updateData err : " + e );
-		} finally {
+			System.out.println("updateData err : " + e);
+		}finally {
 			try {
 				if(rs != null) rs.close();
 				if(pstmt != null) pstmt.close();
@@ -123,7 +121,32 @@ public class DbcpProcess { //jsp에서 호출될 BL class
 		}
 		return dto;
 	}
-
+	
+	public boolean updateDataOk(SangpumBean bean) {
+		boolean b = false;
+		try {
+			conn = ds.getConnection();
+			String sql = "update sangdata set sang=?,su=?,dan=? where code=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, bean.getSang());
+			pstmt.setString(2, bean.getSu());
+			pstmt.setString(3, bean.getDan());
+			pstmt.setString(4, bean.getCode());
+			if(pstmt.executeUpdate() > 0) b = true;
+		} catch (Exception e) {
+			System.out.println("updateDataOk err : " + e);
+		}finally {
+			try {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
+		}
+		return b;
+	}
+	
 	public boolean deleteData(String code) {
 		boolean b = false;
 		try {
@@ -146,6 +169,10 @@ public class DbcpProcess { //jsp에서 호출될 BL class
 		return b;
 	}
 }
+
+
+
+
 
 
 

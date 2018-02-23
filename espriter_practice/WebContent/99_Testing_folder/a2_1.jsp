@@ -13,10 +13,10 @@ String result = "";
 for(int i = 0; i < list.size(); i++){
 	SangpumDto dto = list.get(i);
 	result += "{";
-	result += "\"sa_bun\":" + "\"" + dto.getCode() + "\"," ;
-	result += "\"name\":" + "\"" + dto.getSang() + "\"," ;
-	result += "\"jik\":" + "\"" + dto.getSu() + "\"," ;
-	result += "\"ipsa_y\":" + "\"" + dto.getDan() + "\"" ;
+	result += "\"code\":" + "\"" + dto.getCode() + "\"," ;
+	result += "\"sang\":" + "\"" + dto.getSang() + "\"," ;
+	result += "\"su\":" + "\"" + dto.getSu() + "\"," ;
+	result += "\"dan\":" + "\"" + dto.getDan() + "\"" ;
 	result += "},";
 }
 if(result.length() > 0){

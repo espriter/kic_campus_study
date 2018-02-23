@@ -4,77 +4,105 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript">
-window.onload = function(){
-	document.getElementById("btnOk").onclick = function(){
-		startXhr();
-	}
-	
-	document.getElementById("btnOk2").onclick = function(){
-		startXhr2();
-	}
-}
+	window.onload = function() {
+		document.getElementById("btnOk").onclick = function() {
+			startXhr();
+		}
 
-var xhr;
-
-function startXhr(){
-	//alert("aa");
-	xhr = new XMLHttpRequest();
-	
-	xhr.open("get", "a2_1.json", true);
-	xhr.onreadystatechange = function(){
-		if(xhr.readyState == 4){
-			if(xhr.status == 200){
-				process_data();
-			}else{
-				alert("요청 실패:" + xhr.status);	
-			}
+		document.getElementById("btnOk2").onclick = function() {
+			startXhr2();
 		}
 	}
-	xhr.send(null);
-}
 
-function startXhr2(){
-	//alert("aa");
-	xhr = new XMLHttpRequest();
-	
-	xhr.open("get", "a2_1.jsp", true);
-	xhr.onreadystatechange = function(){
-		if(xhr.readyState == 4){
-			if(xhr.status == 200){
-				process_data();
-			}else{
-				alert("요청 실패:" + xhr.status);	
+	var xhr;
+
+	function startXhr() {
+		//alert("aa");
+		xhr = new XMLHttpRequest();
+
+		xhr.open("get", "a2_1.json", true);
+		xhr.onreadystatechange = function() {
+			if (xhr.readyState == 4) {
+				if (xhr.status == 200) {
+					process_data();
+				} else {
+					alert("요청 실패:" + xhr.status);
+				}
 			}
 		}
+		xhr.send(null);
 	}
-	xhr.send(null);
-}
 
-function process_data() {
-	var data = xhr.responseText;
-	//alert(data);
-	var parseData = JSON.parse(data);  //배열 객체화
-	//alert(parseData);
-	//alert(parseData.sangpum.length);
-	var str = "";
-	for(var i=0; i < parseData.sangpum.length; i++){
-		str += parseData.sangpum[i].code + " " + 
-			parseData.sangpum[i].sang + " " +
-			parseData.sangpum[i].su + " " +
-			parseData.sangpum[i].dan + "<br>";
+	function startXhr2() {
+		//alert("aa");
+		xhr = new XMLHttpRequest();
+
+		xhr.open("get", "a2_1.jsp", true);
+		xhr.onreadystatechange = function() {
+			if (xhr.readyState == 4) {
+				if (xhr.status == 200) {
+					process_data2();
+				} else {
+					alert("요청 실패:" + xhr.status);
+				}
+			}
+		}
+		xhr.send(null);
+	}
+
+	function process_data() {
+		var data = xhr.responseText;
+		//alert(data);
+		var parseData = JSON.parse(data); //배열 객체화
+		//alert(parseData);
+		//alert(parseData.sangpum.length);
+		var str = "<table border='1' bordercolor='red'>";
+		str += "<tr><th>사번</th><th>이름</th><th>직급</th><th>입사 연도</th></tr>";
+		
+		for (var i = 0; i < parseData.sangpum.length; i++) {
+			str += "<tr>"; 
+			str += "<td>" + parseData.sangpum[i].code + "</td>"
+			str += "<td>" + parseData.sangpum[i].sang + "</td>"
+			str += "<td>" + parseData.sangpum[i].su + "</td>"
+			str += "<td>" + parseData.sangpum[i].dan + "</td>"
+			str += "</tr>";
+			
+		}
+
+		document.getElementById("disp").innerHTML = str;
 	}
 	
-	document.getElementById("disp").innerHTML = str;
-}
+	function process_data2() {
+		var data = xhr.responseText;
+		//alert(data);
+		var parseData = JSON.parse(data); //배열 객체화
+		//alert(parseData);
+		//alert(parseData.sangpum.length);
+		var str = "<table border='1' bordercolor='red'>";
+		str += "<tr><th>번호</th><th>제품명</th><th>개수</th><th>가격</th></tr>";
+		
+		for (var i = 0; i < parseData.sangpum.length; i++) {
+			str += "<tr>"; 
+			str += "<td>" + parseData.sangpum[i].code + "</td>"
+			str += "<td>" + parseData.sangpum[i].sang + "</td>"
+			str += "<td>" + parseData.sangpum[i].su + "</td>"
+			str += "<td>" + parseData.sangpum[i].dan + "</td>"
+			str += "</tr>";
+			
+		}
+
+		document.getElementById("disp").innerHTML = str;
+	}
+	
 </script>
 </head>
 <body>
-<button id="btnOk">Ajax로 JSON 읽기</button>
-<button id="btnOk2">Ajax로 JSON 읽기(DB)</button>
-<br><br>
-<div id="category">
+	<button id="btnOk">Ajax로 JSON 읽기</button>
+	<button id="btnOk2">Ajax로 JSON 읽기(DB)</button>
+	<br>
+	<br>
 
-</div>
-<div id="disp"></div>
+	<div id="disp"></div><br>
+	
 </body>
 </html>

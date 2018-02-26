@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sangpums>
+	<sangpum>
+		<code>10</code>
+		<sang>볼펜</sang>
+		<su>5</su>
+		<dan>5000</dan>
+	</sangpum>
+	<sangpum>
+		<code>20</code>
+		<sang>만년필</sang>
+		<su>22</su>
+		<dan>50000</dan>
+	</sangpum>
+
+</sangpums>

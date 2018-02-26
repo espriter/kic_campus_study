@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+var xhr;
+
+
+function func(){
+	xhr = new XMLHttpRequest();
+	xhr.open("get", "csvdata.txt", true);
+	xhr.onreadystatechange = function(){
+		if(xhr.readyState == 4){
+			if(xhr.status== 200){
+				process();
+			}else{
+				alert("요청 실패: " + xhr.status);
+			}	
+		}
+	}
+	xhr.send(null);
+}
+
+function process(){
+	var datas = xhr.responseText;
+	var rowData = datas.split(String.fromCharCode(13)); //행은 cr로 구분 (String.fromCharCode(13))
+	str ="";
+	for(var i=0; i < rowData.length; i++){
+		var colData = rowData[i].split(","); //열은 ,로 구분
+		for(var j=0; j < colData.length; j++){
+			str += colData[j] + " ";
+		}
+		str += "<br>";
+	}
+	document.getElementById("disp").innerHTML = str;
+}
+</script>
+</head>
+<body>
+상품자료 읽기(csv)<br>
+<button onclick="func()">읽기</button>
+<hr>
+<div id ="disp"></div>
+</body>
+</html>

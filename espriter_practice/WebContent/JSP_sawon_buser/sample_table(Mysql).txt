@@ -4,10 +4,10 @@ sang varchar(20),
 su int,
 dan int);
 
-insert into sangdata values(1,'Àå°©',3,5000);
-insert into sangdata values(2,'º¡¾î¸®Àå°©',2,12000);
-insert into sangdata values(3,'°¡Á×Àå°©',10,50000);
-insert into sangdata values(4,'°¡Á×Á¡ÆÛ',5,650000);
+insert into sangdata values(1,'ì¥ê°‘',3,5000);
+insert into sangdata values(2,'ë²™ì–´ë¦¬ì¥ê°‘',2,12000);
+insert into sangdata values(3,'ê°€ì£½ì¥ê°‘',10,50000);
+insert into sangdata values(4,'ê°€ì£½ì í¼',5,650000);
 
 
 create table buser(
@@ -16,38 +16,38 @@ buser_name varchar(10) not null,
 buser_loc varchar(10),
 buser_tel varchar(15));
 
-insert into buser values(10,'ÃÑ¹«ºÎ','¼­¿ï','02-100-1111');
-insert into buser values(20,'¿µ¾÷ºÎ','¼­¿ï','02-100-2222');
-insert into buser values(30,'Àü»êºÎ','¼­¿ï','02-100-3333');
-insert into buser values(40,'°ü¸®ºÎ','ÀÎÃµ','032-200-4444');
+insert into buser values(10,'ì´ë¬´ë¶€','ì„œìš¸','02-100-1111');
+insert into buser values(20,'ì˜ì—…ë¶€','ì„œìš¸','02-100-2222');
+insert into buser values(30,'ì „ì‚°ë¶€','ì„œìš¸','02-100-3333');
+insert into buser values(40,'ê´€ë¦¬ë¶€','ì¸ì²œ','032-200-4444');
 
 create table sawon(
 sawon_no  int(4) primary key,
 sawon_name varchar(10) not null,
 buser_num int(4) not null,
-sawon_jik  varchar(10) default '»ç¿ø', 
+sawon_jik  varchar(10) default 'ì‚¬ì›', 
 sawon_pay int,
 sawon_ibsail date,
 sawon_gen  char(3),
-CONSTRAINT ck_sawon_gen check(sawon_gen='³²' or sawon_gen='¿©')
+CONSTRAINT ck_sawon_gen check(sawon_gen='ë‚¨' or sawon_gen='ì—¬')
 );
 
-insert into sawon values(1,'È«±æµ¿',10,'»çÀå',8000,'98/09/01','³²');
-insert into sawon values(2,'ÇÑ±¹³²',20,'ºÎÀå',6200,'01/01/03','³²');
-insert into sawon values(3,'ÀÌ¼ø½Å',20,'°úÀå',4500,'01/03/03','³²');
-insert into sawon values(4,'ÀÌ¹Ì¶ó',30,'´ë¸®',3503,'04/01/04','¿©');
-insert into sawon values(5,'ÀÌ¼ø¶ó',20,'»ç¿ø',2850,'09/08/05','¿©');
-insert into sawon values(6,'±èÀÌÈ­',20,'»ç¿ø',2850,'09/08/05','¿©');
-insert into sawon values(7,'±èºÎ¸¸',40,'ºÎÀå',5003,'01/01/05','³²');
-insert into sawon values(8,'±è±â¸¸',20,'°úÀå',4000,'03/01/01','³²');
-insert into sawon values(9,'Ã¤¼ÛÈ­',30,'´ë¸®',3507,'02/03/02','¿©');
-insert into sawon values(10,'¹ÚÄ¡±â',10,'»ç¿ø',2700,'05/03/02','³²');
-insert into sawon values(11,'±èºÎÇØ',30,'»ç¿ø',1900,'06/09/06','³²');
-insert into sawon values(12,'¹Úº°³ª',40,'°úÀå',4300,'99/03/05','¿©');
-insert into sawon values(13,'¹Ú¸íÈ­',10,'´ë¸®',3900,'03/05/01','³²');
-insert into sawon values(14,'¹Ú±ÃÈ­',40,'»ç¿ø',2220,'09/01/05','¿©');
-insert into sawon values(15,'Ã¤¹Ì¸®',20,'»ç¿ø',2200,'05/01/03','¿©');
-insert into sawon values(16,'ÀÌÀ¯°¡',10,'»ç¿ø',2900,'04/02/01','¿©');
+insert into sawon values(1,'í™ê¸¸ë™',10,'ì‚¬ì¥',8000,'98/09/01','ë‚¨');
+insert into sawon values(2,'í•œêµ­ë‚¨',20,'ë¶€ì¥',6200,'01/01/03','ë‚¨');
+insert into sawon values(3,'ì´ìˆœì‹ ',20,'ê³¼ì¥',4500,'01/03/03','ë‚¨');
+insert into sawon values(4,'ì´ë¯¸ë¼',30,'ëŒ€ë¦¬',3503,'04/01/04','ì—¬');
+insert into sawon values(5,'ì´ìˆœë¼',20,'ì‚¬ì›',2850,'09/08/05','ì—¬');
+insert into sawon values(6,'ê¹€ì´í™”',20,'ì‚¬ì›',2850,'09/08/05','ì—¬');
+insert into sawon values(7,'ê¹€ë¶€ë§Œ',40,'ë¶€ì¥',5003,'01/01/05','ë‚¨');
+insert into sawon values(8,'ê¹€ê¸°ë§Œ',20,'ê³¼ì¥',4000,'03/01/01','ë‚¨');
+insert into sawon values(9,'ì±„ì†¡í™”',30,'ëŒ€ë¦¬',3507,'02/03/02','ì—¬');
+insert into sawon values(10,'ë°•ì¹˜ê¸°',10,'ì‚¬ì›',2700,'05/03/02','ë‚¨');
+insert into sawon values(11,'ê¹€ë¶€í•´',30,'ì‚¬ì›',1900,'06/09/06','ë‚¨');
+insert into sawon values(12,'ë°•ë³„ë‚˜',40,'ê³¼ì¥',4300,'99/03/05','ì—¬');
+insert into sawon values(13,'ë°•ëª…í™”',10,'ëŒ€ë¦¬',3900,'03/05/01','ë‚¨');
+insert into sawon values(14,'ë°•ê¶í™”',40,'ì‚¬ì›',2220,'09/01/05','ì—¬');
+insert into sawon values(15,'ì±„ë¯¸ë¦¬',20,'ì‚¬ì›',2200,'05/01/03','ì—¬');
+insert into sawon values(16,'ì´ìœ ê°€',10,'ì‚¬ì›',2900,'04/02/01','ì—¬');
 
 create table gogek(
 gogek_no  int(4) primary key,
@@ -58,21 +58,21 @@ gogek_damsano  int(4),
 CONSTRAINT FK_gogek_damsano foreign key(gogek_damsano) references sawon(sawon_no)
 );
 
-insert into gogek values(1,'ÀÌ³ª¶ó','02-535-2580','850612-1156789',1);
-insert into gogek values(2,'±èÇı¼ø','02-375-6946','700101-1054225',3);
-insert into gogek values(3,'ÃÖºÎÀÚ','02-692-8926','890305-1065773',3);
-insert into gogek values(4,'±èÇØÀÚ','032-393-6277','770412-2028677',1);
-insert into gogek values(5,'Â÷ÀÏÈ£','02-294-2946','790509-1062677',2);
-insert into gogek values(6,'¹Ú»ó¿î','032-631-1204','790623-1023566',6);
-insert into gogek values(7,'ÀÌºĞ','02-546-2372','880323-2558021',2);
-insert into gogek values(8,'½Å¿µ·¡','031-948-0283','790908-1063765',5);
-insert into gogek values(9,'Àåµµ¸®','02-496-1204','870206-2063245',4);
-insert into gogek values(10,'°­³ª·ç','032-341-2867','780301-1070425',12);
-insert into gogek values(11,'ÀÌ¿µÈñ','02-195-1764','810103-2070245',3);
-insert into gogek values(12,'ÀÌ¼Ò¸®','02-296-1066','810609-2046266',9);
-insert into gogek values(13,'¹è¿ëÁß','02-691-7692','820920-1052677',1);
-insert into gogek values(14,'±èÇöÁÖ','031-167-1884','800128-2062665',2);
-insert into gogek values(15,'¼Û¿îÇÏ','02-887-9344','830301-2013345',2);
+insert into gogek values(1,'ì´ë‚˜ë¼','02-535-2580','850612-1156789',1);
+insert into gogek values(2,'ê¹€í˜œìˆœ','02-375-6946','700101-1054225',3);
+insert into gogek values(3,'ìµœë¶€ì','02-692-8926','890305-1065773',3);
+insert into gogek values(4,'ê¹€í•´ì','032-393-6277','770412-2028677',1);
+insert into gogek values(5,'ì°¨ì¼í˜¸','02-294-2946','790509-1062677',2);
+insert into gogek values(6,'ë°•ìƒìš´','032-631-1204','790623-1023566',6);
+insert into gogek values(7,'ì´ë¶„','02-546-2372','880323-2558021',2);
+insert into gogek values(8,'ì‹ ì˜ë˜','031-948-0283','790908-1063765',5);
+insert into gogek values(9,'ì¥ë„ë¦¬','02-496-1204','870206-2063245',4);
+insert into gogek values(10,'ê°•ë‚˜ë£¨','032-341-2867','780301-1070425',12);
+insert into gogek values(11,'ì´ì˜í¬','02-195-1764','810103-2070245',3);
+insert into gogek values(12,'ì´ì†Œë¦¬','02-296-1066','810609-2046266',9);
+insert into gogek values(13,'ë°°ìš©ì¤‘','02-691-7692','820920-1052677',1);
+insert into gogek values(14,'ê¹€í˜„ì£¼','031-167-1884','800128-2062665',2);
+insert into gogek values(15,'ì†¡ìš´í•˜','02-887-9344','830301-2013345',2);
 
 create table board(
 num int(5) primary key,
@@ -82,7 +82,6 @@ content varchar(4000),
 bwrite date,
 readcnt int(3) default 0);
 
-insert into board(num,author,title,content,bwrite) values(1,'È«±æµ¿','¿¬½À','¿¬½À³»¿ë',now());
+insert into board(num,author,title,content,bwrite) values(1,'í™ê¸¸ë™','ì—°ìŠµ','ì—°ìŠµë‚´ìš©',now());
 
 commit;
-

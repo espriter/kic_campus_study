@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JQuery 적용 방법</title>
+<style type="text/css">
+	.korea{font-family: "궁서체"}
+</style>
+
+<!-- JQuery 적용 방법1 : 자체 파일에서 로드 -->
+<!-- 
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	alert("bb");
+});
+</script>
+-->
+<!-- JQuery 적용 방법2 : 외부 CDN에서 로드 -->
+<!--
+<script src="http://code.jquery.com/jquery-Latest.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	alert("bb");
+});
+</script>
+-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("*").css("border", "1px solid #ff0000"); // 문서 전체에 css 적용
+	$('span').css("border", '3px dotted blue'); //span 요소만 선택
+	$("#content").css("background-color", "cyan"); //특정 id 선택
+	jQuery(".my").css("border", '5px solid rgb(255,255,0)'); //class를 선택
+	$("i > .my").css('font-size', '24px'); //i태그 밑에 있는 my 클래스
+});
+
+//$(document).ready(function(){
+	$(function(){ // 축약형도 많이 쓰지만 추천하지는 않음
+	//$(".kor").css('color','red').css('font-size','30px'); //체인형으로 이어서 사용 가능
+	$(".kor").css('color','red').css('font-size','30px')
+	.addClass('korea'); //클래스 추가(메소드를 계속해서 추가하고 싶을 때)
+});
+
+</script>
+
+
+</head>
+<body>
+<h2>jQuery 연습장</h2>
+<p class="my"> 조금씩 날이 풀린듯 </p>
+<div>
+<div id="content">봄의 시작</div>
+</div>
+<b>따스한 햇살</b>
+<span>강남 거리</span>
+<i><span class="my">kic 캠퍼스</span></i>
+<b class="kor">대한민국</b>
+</body>
+</html>

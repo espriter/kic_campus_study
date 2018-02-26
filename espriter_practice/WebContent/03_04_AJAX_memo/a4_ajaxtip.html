@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/a4.js"></script>
+</head>
+<body>
+<h2>부서별 직원자료</h2>
+<table border="1">
+  <tr>
+  	<td id="총무부" onmouseover="goFunc(this)" onmouseout="clsFunc()">총무부</td>
+  </tr>
+  <tr>
+  	<td id="영업부" onmouseover="goFunc(this)" onmouseout="clsFunc()">영업부</td>
+  </tr>
+  <tr>
+  	<td id="전산부" onmouseover="goFunc(this)" onmouseout="clsFunc()">전산부</td>
+  </tr>
+  <tr>
+  	<td id="관리부" onmouseover="goFunc(this)" onmouseout="clsFunc()">관리부</td>
+  </tr>
+</table>
+<div style="position: absolute;" id="popup">
+	<table style="background-color: lime;">
+		<tbody id="disp"></tbody>
+	</table>
+</div>
+</body>
+</html>

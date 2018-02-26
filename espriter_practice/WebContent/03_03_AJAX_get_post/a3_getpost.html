@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	window.onload = function() {
+		document.getElementById("btnGet").onclick=getFunc;
+		document.getElementById("btnPost").onclick=postFunc;
+
+	}
+
+	var xhr;
+
+	function getFunc() {
+		var irum = frm.name.value;
+		var nai = frm.age.value;
+		//alert(irum + " " + nai);
+
+		fName = "getpost.jsp?name=" + irum + "&age=" + nai;
+		xhr = new XMLHttpRequest();
+		xhr.open("get", fName, true);
+		xhr.onreadystatechange = function() {
+			if (xhr.readyState == 4) {
+				if (xhr.status == 200) {
+					process();
+				} else {
+					alert("요청 실패:" + xhr.status);
+				}
+			}
+		}
+		xhr.send(null);
+	}
+
+	function postFunc() {
+		var irum = frm.name.value;
+		var nai = frm.age.value;
+		//alert(irum + " " + nai);
+
+		fName = "getpost.jsp";
+		xhr = new XMLHttpRequest();
+		xhr.open("post", fName, true);
+		xhr.onreadystatechange = function() {
+			if (xhr.readyState == 4) {
+				if (xhr.status == 200) {
+					process();
+				} else {
+					alert("요청 실패:" + xhr.status);
+				}
+			}
+		}
+		
+		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+		xhr.send("name=" + irum + "&age=" + nai);
+	}
+	
+	function process() {
+		var data = xhr.responseText;
+		document.getElementById("show").innerHTML = data;
+	}
+	
+</script>
+</head>
+<body>
+	Ajax 요청 방식 : get, post
+	<br>
+	<form name="frm">
+		이름 : <input type="text" name="name"><br>
+		 나이 : <input type="text" name="age"><br> <br> 
+		 <input	type="button" value="get" id="btnGet">
+		  <input type="button"	value="post" id="btnPost">
+		<hr>
+		<div id="show"></div>
+	</form>
+</body>
+</html>

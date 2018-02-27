@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+.imag{position :absolute;
+	top: 10px;
+	left: 10px;
+
+} /* absolute:절대위치, relative: 상대위치, fixed : 고정위치 */
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$(".imag").hide();
+	$(".imag:first").fadeIn('slow');
+	
+	var next;
+	$(".imag").click(function(event){
+		$(this).fadeIn('slow');
+		//alert($(this).next().length);
+		next = ($(this).next().length)?$(this).next():$(".imag:first");
+		$(this).fadeOut('slow'); // 현재 이미지 숨기기
+		next.fadeIn('slow'); // 다음 이미지 출현
+		event.preventDefault(); // 웹의 초기화 해제
+	});
+});
+
+</script>
+
+</head>
+<body>
+	<a class="imag" href="">
+	<img src="image/1.jpg" width="300" height="300">
+	</a>
+	
+	<a class="imag" href="">
+	<img src="image/2.jpg" width="300" height="300">
+	</a>
+	
+	<a class="imag" href="">
+	<img src="image/3.jpg" width="300" height="300">
+	</a>
+	
+	<a class="imag" href="">
+	<img src="image/4.jpg" width="300" height="300">
+	</a>
+	
+	<a class="imag" href="">
+	<img src="image/1.jpg" width="300" height="300">
+	</a>
+</body>
+</html>

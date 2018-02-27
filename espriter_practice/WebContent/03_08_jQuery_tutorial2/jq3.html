@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	//var p = document.getElementsByTagName("p");
+	var p =$("p");
+	p[0].style.color = "red"; // p 태그에 빨간색(js 형식)
+	p[1].style.color = "blue"; // p의 2번째 태그에 파란색(js 형식)
+	p[2].style.color = "green"; // p의 3번째 태그에 초록색(js 형식)
+	
+	$("p").eq(1).css("color", "aqua"); //// p의 1번째 태그에 아쿠아색(jq 형식)
+	//alert($("p").index($(".kbs"))); → p태그 중에 kbs가 있는 것인 몇번째에 있는가?
+	$("p").eq($("p").index($(".kbs"))).css("color", "yellow"); // p태그 중 kbs가 있는 것을 yellow 색으로 변경
+	
+	// $("요소1~요소2") : 요소 1에서 검색 시작
+	var arr =$("h1~p")
+	//alert(arr.size()); // 3개, 즉 h1 위에 있는 태그는 미지정됨
+	var result = "";
+	for(var i = 0; i< arr.length; i++){
+		//result += arr[i].innerHTML + ", ";
+		//result += arr[i].innerText + ", ";
+		//result += $(arr[i]).html() + " , "; // jQuery 양식 html 읽기
+		result += $(arr[i]).text() + " , "; // jQuery 양식 text 읽기
+	}
+	//alert("result : " + result);
+	console.log("result : " + result); // 콘솔 로그로 남기기
+	
+	var arr2 = $("p:not(.kbs)"); // kbs를 제외한 p태그 선택
+	//alert(arr2.size()); //3
+	
+	//실행 중에 요소 추가
+	//$("b").prepend("<h2>요소 추가(기존요소 앞)</h2>");
+	$("b").prepend("<h2>요소 추가(기존요소 앞)</h2>").prependTo("b"); // 소스와 타깃을 변경 가능
+	$("b").append("<h2>요소 추가(기존요소 뒤)</h2)");
+	//$("<h2>요소 추가(기존 요소 뒤)</h2>").appendTo("b");
+	
+	//반복
+	var arr3 = "";
+	$("li").each(function(){
+		arr3 += $(this).html()+" ";
+	});
+	//alert(arr3);
+	console.log(arr3);
+	
+	//사용자 정의 선택자
+	$("tbody tr").css("background", "#ccddee");
+	$("tbody tr:odd").css("background", "#123456"); // 홀수
+	$("tbody tr:even").css("background", "#654321"); // 짝수
+	$("tbody tr:eq(1)").css("background", "#yellow"); // index
+	$("tbody tr:gt(3)").css("background", "#red"); // 3보다 클 때
+	$("tbody tr:lt(2)").css("background", "#yellow");
+	$("tbody tr:contains('tom3')").css("background", "#gold"); // index
+	
+});
+
+</script>
+</head>
+<body>
+<p>jq test</p>
+<h1>요소 배열</h1>
+<p><i>p요소1</i></p>
+<p><i>p요소2</i></p>
+<p class="kbs"><i>p요소3</i></p>
+<hr>
+문서에 문자열 추가<br><br>
+<b style="background: orange;">jQuery 문자열 추가 연습!!</b>
+<hr>
+** 반복처리 ** <br>
+<h2>운영체제 종류</h2>
+<ul>
+	<li><i>Window</i></li>
+	<li><i>linux</i></li>
+	<li><i>osX</i></li>
+</ul>
+<hr>
+
+<table style="border : 1px solid;">
+	<thead>
+		<tr><th>이름</th><th>전화</th></tr>
+	</thead>
+	<tbody>
+		<tr><td>tom</td><td>123-1234</td></tr>
+		<tr><td>tom2</td><td>223-2234</td></tr>
+		<tr><td>tom3</td><td>323-3234</td></tr>
+		<tr><td>tom4</td><td>423-4234</td></tr>
+		<tr><td>tom5</td><td>523-5234</td></tr>
+		<tr><td>tom6</td><td>623-6234</td></tr>
+	</tbody>
+
+</table>
+
+</body>
+</html>

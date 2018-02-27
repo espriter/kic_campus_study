@@ -1,0 +1,5 @@
+@charset "UTF-8";
+#container{font-size : 1.0em; margin: 10px;}
+h2{font-size: 1.3em; margin-left: .5em}
+.Label{width : 130px; margin: .5em}
+.myhover{cussor: pointer; background-color: #ffc;}

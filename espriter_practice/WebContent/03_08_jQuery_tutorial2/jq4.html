@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	.myfocused{background-color: #bbb;}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	//$("h1").css("color", "#a12");
+	//$("h1").css("text-decoration", "underline");
+	$("h1").css({"color":"#a12", "text-decoration":"underline"});
+	$("#message").wrap("<h2/>"); //선택 요소 감싸기
+	
+	//event focus
+	$("input").focus(function(){
+		$(this).addClass("myfocused");
+	});
+	
+	//event remove (박스를 클릭하면 흐릿하게)
+	$("input").blur(function(){
+		$(this).removeClass("myfocused");
+	});
+	
+	//#frm의 submit을 죽이기(default)
+	//$("#frm").submit(function(){
+	$("#frm").on("submit", function(){
+		event.preventDefault();
+		
+		// 다른 기능으로 대체
+		var new_ele = "<li>" + $("#data").val() + "</li>";
+		$("#uldisp").append(new_ele);
+		
+	});
+	
+	$("a").click(function(event){
+		event.preventDefault();
+		alert("다른 기능으로 사용 가능");
+	});
+	
+});
+</script>
+</head>
+<body>
+<h1>jq event</h1>
+<div id = "message">이벤트</div>
+<form action="aa.jsp" id="frm">
+	<label for="data">자료 입력</label>
+	<input type="text" id="data">
+	<input type="submit" value="확인">	
+</form>
+<br>
+<ul id="uldisp"></ul>
+<p>
+<a href="http://daum.net">다음</a>
+</body>
+</html>

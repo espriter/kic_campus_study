@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("div > a[target]").css("background", "#aaa"); //[속성]에다가 값을 줌
+	$("div > a[href='http://naver.com']").css("background", "#0ff"); //[네이버 링크]에다가 값을 줌
+	$("div > a[href!='http://naver.com']").css("background", "#888"); //[네이버 링크] 외에
+
+	//패턴 : regular expression
+	$("div[id^='content-1']").css("background", "#abc");
+	$("div[id$='1']").css("background", "#f00");
+	
+	//특정 단어 포함
+	$("input[name='한국']").css("background", "yellow"); // 일치
+	$("input[name*='한국']").css("background", "silver"); // 포함
+	$("input[name~='한국']").css("background", "cyan"); // 독립
+});
+
+</script>
+</head>
+<body>
+<h2>jq 셀렉터(속성)</h2>
+<div>
+	<p>셀렉터 연습1</p>
+	<a href="http://naver.com">naver target:X</a><br>
+	<a href="http://naver.com" target="_blank">naver target:X</a><br>
+	<a href="http://daum.net">daum target:X</a><br>
+	<a href="http://daum.net" target="_blank">naver target:X</a><br>
+	<a href="http://korea.com">korea target:X</a><br>
+	<a href="http://korea.com" target="_blank">naver target:X</a><br>
+	
+</div>
+<div>
+	<p>id 값에 패턴 적용</p>
+	<div id ="content-1">content-1</div>
+	<div id ="content-2">content-2</div>
+	<div id ="view-1">view-1</div>
+	<div id ="content-3">content-3</div>
+	</div>
+	<p/>
+<div>
+	<p>name 값에 "한국"인 포함된 요소 선택</p>
+	<input name="한국" value="한국 독립단어">
+	<input name="한국인" value="한국이 포함된 독립단어">
+	<input name="한 국민" value="한국이 없는 단어">
+	<input name="대한국민" value="한국어 포함된 단어2">
+</div>
+</body>
+</html>

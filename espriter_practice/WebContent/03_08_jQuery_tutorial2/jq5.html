@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+function tdclick(arg){
+	alert(arg);
+}
+
+$(document).ready(function(){
+	/*
+	$("td").click(function(){
+		alert($(this).text());
+	});
+	*/
+	$("td").click(aa);
+	
+	$("#good").dblclick(function(){
+		alert($(this).text());
+	});
+	
+	$("#txtA").keydown(function(event){
+		$("#txtB").val(event.keyCode);
+	});
+	
+	//bind 메소드 연습
+	$("#btn").bind("click", function(){ //객체와 이벤트를 연결
+		alert("버튼 이벤트 처리");
+	$("#btn").unbind("click"); // bind 취소
+	});
+	
+	var count = 0;
+	//$("#myArea").bind("mouseenter mouseleave", function(){ // 이벤트를 나열식으로 쓰는 것 가능
+	$("#myArea").on("mouseenter mouseleave", function(){ // 이벤트를 나열식으로 쓰는 것 가능
+		count++;
+	$("#mResult").text(count + "번 수행");
+	
+//	if(event.type === "mouseenter"){
+//		$("#mResult").css("background","red");
+//	}else if(event.type === "mouseleave"){
+//		$("#mResult").css("background","blue");
+//	}
+	});
+	
+	//live event
+	$("#btnAdd").on("click", function(){
+		$("ul").append("<li>item" + $("li").length + "</li>");
+	});///////////////////////////////////
+	
+	
+	$(document).on("click", "li", function(){
+		alert($(this).text());
+	});
+	
+	$("#btnDie").on("click", function(){
+		$(document).off("click", "li");	
+	});
+	
+	
+	
+});
+
+function aa(){
+	alert($(this).text());
+}
+
+</script>
+</head>
+<body>
+** 이벤트 처리 **
+<table>
+	<tr>
+		<td onclick="tdclick('배고프다');">kbs</td>
+		<td>mbc</td>
+		<td>sbs</td>
+</table>
+<br>
+<div id="good">더블 클릭 하시오</div>
+<br>
+키보드로 입력하면 아스키코드 변환 : 
+<input type="text" id="txtA">
+<input type="text" id="txtB">
+<br><br>
+<button id ="btn">bind 이벤트</button>
+<br><br>
+<div id="myArea" style="background-color : yellow; height: 50px">
+마우스 올리고 내리기 결과:<span id="mResult"></span>
+</div>
+<br>
+라이브 이벤트<br>
+<div>
+	<ul>
+		<li>item0</li>
+	</ul>
+		<input type="button" id="btnAdd" value="요소 추가">
+		<input type="button" id="btnDie" value="이벤트 해제">
+</div>
+</body>
+</html>

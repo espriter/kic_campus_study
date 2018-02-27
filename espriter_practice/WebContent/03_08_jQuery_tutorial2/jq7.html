@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+.myhov{
+	background-color: #00f; color: #fff
+	}
+.page{margin: 5px;}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("tbody > tr").hover(
+	function(){
+		$(this).find("td").addClass("myhov");	
+	},
+	function(){
+		$(this).find("td").removeClass("myhov");
+	}
+	);
+
+	// 페이지 단위 작업
+	var rows = $("table").find("tbody tr").length;
+	//alert("행의 개수 : " + rows);
+	var per_page = 3; // 페이지당 출력 행 수
+	var no_pages = Math.ceil(rows /per_page);
+	//alert("전체 페이지 수 : " + no_pages);
+	
+	pNumbers = $("<div id ='pages'></div>");
+	for(var i = 0; i< no_pages; i++){
+		$("<span class='page'>" + (i + 1) + "</span>").appendTo(pNumbers);
+	}
+	pNumbers.insertAfter("table");
+	
+	// 페이지에 링크 걸기
+	$(".page").hover(
+			function(){
+				$(this).addClass("myhov");	
+			},
+			function(){
+				$(this).removeClass("myhov");
+			}	
+	);
+	
+	$("table").find("tbody tr").hide();
+	
+	var t = $("table tbody tr");
+	for(var j = 0; j < per_page; j++){
+		$(t[j]).show();
+	}
+	$("span").click(function(){
+		$("table").find("tbody tr").hide();
+		for(var k=($(this).text()- 1)* per_page;
+			k < ($(this).text() * per_page); k++){
+			// for(k=(1-1)) * 3; k < (1 * 3); k++)
+			// for(k=(2-1)) * 3; k < (2 * 3); k++)
+			$(t[k]).show();
+		}
+	});
+});
+
+
+
+</script>
+</head>
+<body>
+테이블 행 하이라이트<br>
+<table border="1">
+<thead><tr><th>사번</th><th>이름</th></tr></thead>
+<tbody>
+	<tr><td>1</td><td>tom1</td></tr>
+	<tr><td>2</td><td>tom2</td></tr>
+	<tr><td>3</td><td>tom3</td></tr>
+	<tr><td>4</td><td>tom4</td></tr>
+	<tr><td>5</td><td>tom5</td></tr>
+	<tr><td>6</td><td>tom6</td></tr>
+	<tr><td>7</td><td>tom7</td></tr>
+	<tr><td>8</td><td>tom8</td></tr>
+	<tr><td>9</td><td>tom9</td></tr>
+	<tr><td>10</td><td>tom10</td></tr>
+</tbody>
+</table>
+</body>
+</html>

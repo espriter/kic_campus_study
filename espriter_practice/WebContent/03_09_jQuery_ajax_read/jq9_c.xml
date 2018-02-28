@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <abc>
-	<aa term="kbs" part="1.">
+	<aa term="kbs" part="1.0">
 		<desc>공영방송</desc>
 	</aa>
 	
-	<aa term="sbs" part="1.">
+	<aa term="sbs" part="1.0">
 		<desc>서울방송</desc>
 	</aa>
 	
-	<aa term="mbc" part="1.">
+	<aa term="mbc" part="1.0">
 		<desc>문화 방송</desc>
 	</aa>
 </abc>

@@ -33,5 +33,6 @@ public class SangpumDto {
 
 	public void setDan(String dan) {
 		this.dan = dan;
-	}
+	} 
+	
 }

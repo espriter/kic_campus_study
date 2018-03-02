@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="css/jq13.css">
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="js/jq13.js"></script>
+</head>
+<body>
+<button id="btn_dispAll">전체보기</button>
+<div id="disp">상품출력장소</div>
+
+<button id="btn_addSangpum">상품추가</button>
+<button id="btn_delSangpum">상품삭제</button>
+
+<div id="addForm">
+	<label for="txtCode">코드 : </label>
+	<input type="text" id="txtCode">
+	<span class="msg" id="code_err1">코드입력!</span>
+	<span class="msg" id="code_err2">코드는 숫자만 허용!</span>
+	<br>
+	<label for="txtSang">품명 : </label>
+	<input type="text" id="txtSang">
+	<span class="msg" id="sang_err">상품명 입력!</span>
+	<br>
+	<label for="txtSu">수량 : </label>
+	<input type="text" id="txtSu">
+	<span class="msg" id="su_err">수량은 숫자로!</span>
+	<br>
+	<label for="txtDan">단가 : </label>
+	<input type="text" id="txtDan">
+	<span class="msg" id="dan_err">단가는 숫자로!</span>
+	<br>
+	<button id="btn_insertData">추가</button>
+	<button id="btn_insertCancel">취소</button>
+</div>
+
+<div id="delForm">
+	<label for="delCode">삭제할 코드 : </label>
+	<input type="text" id="delCode">
+	<span class="msg" id="dcode_err">코드는 숫자로!</span>
+	<br>
+	<button id="btn_deleteData">삭제</button>
+	<button id="btn_deleteCancel">취소</button>
+</div>
+</body>
+</html>
+
+

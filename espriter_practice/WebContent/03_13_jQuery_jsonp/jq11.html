@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+		$("#btn1").on("click", aa);
+});
+
+	function aa(){
+		//alert("a");
+		$.ajax({
+			type:"get",
+			url:"http://localhost/espriter_blog_practice/03_13_jQuery_jsonp(n)/jq11.jsp",
+			dataType:"jsonp",
+			jsonp:"callback",
+			success:function(data){
+				var res = data.datas;
+				//alert(res + " " + res.length);
+				var imsi = "";
+				$(res).each(function(ind, entry){
+					imsi = "<div>" + entry.no + " - "+entry["name"] + "</div>";
+					$("#disp").append(imsi);
+				});
+			},
+			fail :function(){
+				alert("읽기 실패");
+			}
+		});
+	}
+
+</script>
+</head>
+<body>
+** 다른 도메인 서버의 json 자료 읽기 **<br>
+<button id ="btn1">test</button>
+<hr>
+<div id ="disp"></div>
+</body>
+</html>

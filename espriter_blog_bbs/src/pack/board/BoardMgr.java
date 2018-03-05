@@ -3,6 +3,7 @@ package pack.board;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -86,7 +87,112 @@ public class BoardMgr { // Board 관련 process
 			} catch (Exception e2) {
 				// TODO: handle exception
 			}	
+		}
+	}
+	public void totalList() {
+		String sql = "select count(*) from board";
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			rs.next();
+			tot = rs.getInt(1);
+		} catch (Exception e) {
+			System.out.println("totallist err :" + e);
+		}finally {
+			try {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}	
+		}
 	}
 	
-}
+	public int getPageSu() { // 총 페이지 수 반환
+		pageSu = tot / pList;
+		if(tot % pList > 0)pageSu++;
+		return pageSu;
+	}
+	public ArrayList<BoardDto> getDataAll(int page, String stype, String sword){
+		ArrayList<BoardDto> list = new ArrayList<>();
+		String sql = "select * from board"; //order by gnum desc, onum asc";
+		
+		try {
+			conn = ds.getConnection();
+			if(sword == null) { //sword가 검색이 없을 경우
+				sql += " order by gnum desc,onum asc";
+				pstmt = conn.prepareStatement(sql);
+			}else { // 검색이 있을 경우
+				sql += " where " + stype + " like ?";
+				sql += " order by gnum desc,onum asc";
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, "%" + sword + "%");
+			}
+			
+			rs = pstmt.executeQuery();
+			
+			for(int i = 0; i < (page -1) * pList; i++) {
+				rs.next(); // 레코드 위치, 0, 4, 9...
+			}
+			int k = 0;
+			while(rs.next() && k < pList) {
+				BoardDto dto = new BoardDto();
+				dto.setNum(rs.getInt("num"));
+				dto.setName(rs.getString("name"));
+				dto.setTitle(rs.getString("title"));
+				dto.setBdate(rs.getString("bdate"));
+				dto.setReadcnt(rs.getInt("readcnt"));
+				dto.setNested(rs.getInt("nested"));
+				list.add(dto);				
+				k++;
+			}			
+		} catch (Exception e) {
+			System.out.println("getDataAll err" + e);
+		}finally {
+			try {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}	
+		}
+		return list;
+	}
+	public BoardDto getData(String num) {
+		BoardDto dto = null;
+		try {
+			String sql = " select * from board where num=?";
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, num);
+			rs = pstmt.executeQuery();
+			if(rs.next()){
+				dto = new BoardDto();
+				dto.setName(rs.getString("name"));
+				dto.setPass(rs.getString("pass")); //비밀번호
+				dto.setMail(rs.getString("mail")); // 이메일
+				dto.setTitle(rs.getString("title")); // 글제목
+				dto.setCont(rs.getString("cont")); // 컨텐트
+				dto.setBip(rs.getString("bip")); // ip 주소
+				dto.setBdate(rs.getString("bdate")); // 등록일
+				dto.setReadcnt(rs.getInt("readcnt")); // 조회수
+			}
+			
+		} catch (Exception e) {
+			System.out.println("getData err" + e);
+		}finally {
+			try {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}	
+		}
+		
+		return dto;
+	}
 }

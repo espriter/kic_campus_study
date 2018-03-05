@@ -1,5 +1,8 @@
 ** 하단 명령어를 maria db에 입력하세요 **
+<<db 생성>>
+create database shopdb;
 
+<<2 테이블 생성>>
 create table board(
 num int(5) primary key, name varchar(20) not null, pass varchar(20) not null, mail varchar(30),
 title varchar(50), cont text, bip varchar(20), bdate varchar(20),readcnt int(3),

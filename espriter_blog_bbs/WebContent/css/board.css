@@ -1,0 +1,21 @@
+@charset "UTF-8";
+table{
+	width: 80%;
+	margin-left : 10px;
+	margin-right : auto;
+	
+}
+
+td {
+	font-size :10pt;
+	
+}
+
+a {
+	text-decoration: none;
+	
+}
+
+body {
+	margin : 30px;
+}

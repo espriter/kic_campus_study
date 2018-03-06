@@ -301,4 +301,58 @@ public class BoardMgr { // Board 관련 process
 			}	
 		}
 	}
+	public boolean checkPass(int num, String new_pass) {
+		// 수정 작업을 하기 전에 비밀번호 검사 : db에 잇는 비밀 == new__pass 여부 확인
+		boolean b = false;
+		try {
+			String sql = "select pass from board where num=?";
+			conn =ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				if(new_pass.equals(rs.getString("pass"))) {
+					b = true;
+				}
+			}
+			
+		} catch (Exception e) {
+			System.out.println("checkPass err" + e);
+		}finally {
+			try {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}	
+		}
+		
+		
+		return b;
+	}
+	public void saveEdit(BoardBean bean) {
+		String sql = "update board set name=?,mail=?,title=?,cont=? where num=?";
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, bean.getName());
+			pstmt.setString(2, bean.getMail());
+			pstmt.setString(3, bean.getTitle());
+			pstmt.setString(4, bean.getCont());			
+			pstmt.setInt(5,bean.getNum());
+			pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			System.out.println("saveEdit err" + e);
+		}finally {
+			try {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}	
+		}
+	}
 }

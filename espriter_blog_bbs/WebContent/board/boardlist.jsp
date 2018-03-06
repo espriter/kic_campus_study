@@ -34,7 +34,7 @@ window.onload = function(){ //jquery로 써도 됨
 		[<a href="../index.html">메인으로</a>]&nbsp;
 		[<a href="boardlist.jsp?page=1">최근목록</a>]&nbsp;
 		[<a href="boardwrite.jsp">새글 작성</a>]&nbsp;
-		[<a href="#" onclick="window.onload('admin.jsp', '','width=300,height=150,top=200,left=300')">관리자용</a>]
+		[<a href="#" onclick="window.open('admin.jsp', '','width=300,height=200,top=200,left=300')">관리자용</a>]
 		<br><br>
 		<table style="width:100%">
 		<tr style="background-color: silver;">
@@ -60,11 +60,18 @@ window.onload = function(){ //jquery로 써도 됨
 		ArrayList<BoardDto> list = boardMgr.getDataAll(spage, stype, sword);
 		for(int i = 0; i < list.size(); i++){
 			dto = (BoardDto)list.get(i);
+			// 댓글 들여쓰기 작업
+			int nest = dto.getNested();
+			String gong = " ";
+			for(int j=0; j < nest; j++){
+				gong += "&nbsp;&nbsp;&nbsp;";
+			}
+			// -----------------
 		%>
 		<tr>
 			<td><%=dto.getNum() %></td>
 			<td>
-				<a href="boardcontent.jsp?num=<%=dto.getNum() %>&page=<%=spage%>"><%=dto.getTitle() %></a>
+			<%=gong %><a href="boardcontent.jsp?num=<%=dto.getNum() %>&page=<%=spage%>"><%=dto.getTitle() %></a>
 			<!-- <td><%=dto.getTitle() %></td> -->
 			<td><%=dto.getName() %></td>
 			<td><%=dto.getBdate() %></td>

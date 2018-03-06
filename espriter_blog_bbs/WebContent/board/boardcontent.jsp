@@ -9,8 +9,15 @@ String num = request.getParameter("num");
 String spage = request.getParameter("page"); // spage는 몇페이지인지 확인하는 것 : 1페이지/ 2페이지 ...
 //out.println(num + " " + spage);
 
+boardMgr.updateReadcnt(num);// 조회수 증가
 dto = boardMgr.getData(num); // 해당 자료 불러오기 from BoardMgr.java
 
+String pass = dto.getPass();
+String mypass = "*****"; //일반인은 비밀번호가 보이지 않도록
+String adminOk = (String)session.getAttribute("adminOk");
+if(adminOk != null){
+	if(adminOk.equals("admin")) mypass = pass; // 관리자는 비밀번호를 볼 수 있도록
+}
 
 %>
 
@@ -23,8 +30,21 @@ dto = boardMgr.getData(num); // 해당 자료 불러오기 from BoardMgr.java
 <body>
 <table>
 	<tr>
-		<td>비밀번호 :<%=dto.getPass()%></td>
-		<td></td>
+		<td>비밀번호 :<%=mypass%></td>
+		<td style="text-align:right">
+		<a href="reply.jsp?num=<%=num%>&page=<%=spage%>">
+		<img src="../images/reply.gif">
+		</a>
+		<a href="edit.jsp?num=<%=num %>&page=<%=spage%>">
+		<img src="../images/edit.gif">
+		</a>
+		<a href="delete.jsp?num=<%=num %>&page=<%=spage%>">
+		<img src="../images/del.gif">
+		</a>
+		<a href="boardlist.jsp?num= <%=spage%>">
+		<img src="../images/list.gif">
+		</a>
+		</td>
 	</tr>
 	<tr>
 		<td>

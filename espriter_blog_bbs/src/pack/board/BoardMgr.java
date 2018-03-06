@@ -195,4 +195,55 @@ public class BoardMgr { // Board 관련 process
 		
 		return dto;
 	}
+	public void updateReadcnt(String num) {
+		// 글 내용 보기 전에 조회수 증가 작업
+		try {
+			String sql = "update board set readcnt=readcnt + 1 where num=?";
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, num);
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			System.out.println("updateReadcnt err" + e);
+		}finally {
+			try {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}	
+		}
+	}
+	public BoardDto getReplyData(String num) { //댓글용
+		BoardDto dto = null;
+		try {
+			String sql = "select * from board where num=?";
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, num);
+			pstmt.executeQuery();
+			if(rs.next()) {
+				dto = new BoardDto();
+				dto.setTitle(rs.getString("title"));
+				dto.setGnum(rs.getInt("gnum"));
+				dto.setOnum(rs.getInt("onum"));
+				dto.setNested(rs.getInt("nested"));
+			}
+			
+		} catch (Exception e) {
+			System.out.println("getReplyData err" + e);
+		}finally {
+			try {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}	
+		}
+		
+		
+		return dto;
+	}
 }

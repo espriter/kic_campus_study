@@ -25,7 +25,7 @@ function check(){
 }
 </script>
 </head>
-<body topmargin="50" leftmargin="50">
+<body>
 <h2>*** 글쓰기 ***</h2>
 <form name="frm" method="post" action="boardsave.jsp">
 	<table border="1" width="530">

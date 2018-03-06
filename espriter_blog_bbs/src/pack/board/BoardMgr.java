@@ -222,7 +222,7 @@ public class BoardMgr { // Board 관련 process
 			conn = ds.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, num);
-			pstmt.executeQuery();
+			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				dto = new BoardDto();
 				dto.setTitle(rs.getString("title"));
@@ -245,5 +245,60 @@ public class BoardMgr { // Board 관련 process
 		
 		
 		return dto;
+	}
+	public void updateOnum(int gnum, int onum) {
+		// 댓글용 - onum 갱신
+		// 같은 그룹의 레코드는 모두 작업에 참여
+		// 댓글의 onum은 이미 db에 있는 onum 보다 크거나 같은 경우에 변경
+		try {
+			String sql = "update board set onum=onum+1 where onum >= ? and gnum=?";
+			conn = ds.getConnection();
+			pstmt.getConnection().prepareStatement(sql);
+			pstmt.setInt(1, onum);
+			pstmt.setInt(2, gnum);
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			System.out.println("updateOnum err" + e);
+		}finally {
+			try {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}	
+		}
+	}
+	public void saveReplyData(BoardBean bean) {
+		// 댓글 저장
+		try {
+			String sql = "insert into board values(?,?,?,?,?,?,?,?,?,?,?,?)";
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, bean.getNum());
+			pstmt.setString(2, bean.getName());
+			pstmt.setString(3, bean.getPass());
+			pstmt.setString(4, bean.getMail());
+			pstmt.setString(5, bean.getTitle());
+			pstmt.setString(6, bean.getCont());
+			pstmt.setString(7, bean.getBip());
+			pstmt.setString(8, bean.getBdate());
+			pstmt.setInt(9, 0);
+			pstmt.setInt(10, bean.getGnum());
+			pstmt.setInt(11, bean.getOnum());
+			pstmt.setInt(12, bean.getNested());
+			pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			System.out.println("saveReplyData err" + e);
+		}finally {
+			try {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}	
+		}
 	}
 }

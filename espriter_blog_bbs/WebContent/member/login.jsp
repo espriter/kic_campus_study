@@ -10,8 +10,22 @@
 <script src="../js/script.js"></script>
 <script type="text/javascript">
 window.onload = function(){
-	document.getElementById("btnLogin").addEventListener("click", funcLogin, false);
-	document.getElementById("btnNewMember").addEventListener("click", funcNew, false);
+	// 아래건 오류 발생(다만 무시 가능) : Uncaught TypeError: Cannot read property 'addEventListener' of null
+	//document.getElementById("btnLogin").addEventListener("click", funcLogin, false);
+	//document.getElementById("btnNewMember").addEventListener("click", funcNew, false);
+	
+	var btn1 = document.getElementById("btnLogin");
+	if(btn1){
+		btn1.addEventListener("click", funcLogin, false);	
+	}
+	
+	var btn2 = document.getElementById("btnNewMember");
+	if(btn2){
+		btn2.addEventListener("click", funcNew, false);	
+	}
+	
+	
+	
 }
 
 function funcLogin(){

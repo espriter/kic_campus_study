@@ -355,7 +355,7 @@ public class BoardMgr { // Board 관련 process
 			}	
 		}
 	}
-	////////////////
+	
 	public void delete(BoardBean bean) {
 		String sql = "delete from board where gnum=?";
 		try {
@@ -376,5 +376,5 @@ public class BoardMgr { // Board 관련 process
 			}	
 		}
 	}
-	////////////////
+	
 }

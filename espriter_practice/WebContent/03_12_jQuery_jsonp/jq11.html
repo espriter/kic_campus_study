@@ -13,7 +13,7 @@ $(document).ready(function(){
 		//alert("a");
 		$.ajax({
 			type:"get",
-			url:"http://localhost/espriter_blog_practice/03_13_jQuery_jsonp(n)/jq11.jsp",
+			url:"jq11.jsp", // 실제로는 "상대방 IP 주소 경로/jq11.jsp"가 되어야 함
 			dataType:"jsonp",
 			jsonp:"callback",
 			success:function(data){

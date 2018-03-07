@@ -15,11 +15,23 @@ window.onload = function(){
 }
 
 function funcLogin(){
-	alert("aa");
+	if(loginForm.id.value === ""){
+		alert("아이디 입력!!!");
+		loginForm.id.focus();
+	}else{if(loginForm.passwd.value === ""){
+		alert("비번 입력!!!!");
+		loginForm.passwd.focus();
+		
+	}else{
+		loginForm.action ="loginproc.jsp";
+		loginForm.method="post";
+		loginForm.submit();
+	}	
+	}
 }
 
 function funcNew(){
-	alert("bb");
+	location.href="register.jsp";
 }
 
 </script>

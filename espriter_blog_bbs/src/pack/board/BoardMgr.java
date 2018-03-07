@@ -355,4 +355,26 @@ public class BoardMgr { // Board 관련 process
 			}	
 		}
 	}
+	////////////////
+	public void delete(BoardBean bean) {
+		String sql = "delete from board where gnum=?";
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1,bean.getNum());
+			pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			System.out.println("delete err" + e);
+		}finally {
+			try {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}	
+		}
+	}
+	////////////////
 }

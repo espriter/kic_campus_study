@@ -29,7 +29,7 @@ function check(){
 		alert("비밀번호를 입력하시오");
 		return false;
 	}
-	if(confirm("정말 수정하시겠습니까?")){
+	if(confirm("정말 삭제하시겠습니까?")){
 		frm.submit();
 	}
 }

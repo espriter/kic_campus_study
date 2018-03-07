@@ -1,3 +1,19 @@
+<테이블 생성>
+create table ziptab(
+zipcode char(7),
+area1 varchar(10),
+area2 varchar(20),
+area3 varchar(30),
+area4 varchar(50));
+
+<데이터 입력 생성>
+----별도의 파일로 만들어서 래의 명령어로 하면 조금 더 빨리 진행됩니다.
+<my-sql/MariaDB>
+mysql -u root -p shopdb < 경로:\zipcode.txt
+
+<oracle>
+sql>@c:\경로\zipcode.txt
+---- 아래가 원본 파일입니다.
 INSERT INTO ZIPTAB  VALUES ('135-806', '서울', '강남구', '개포1동 경남아파트', NULL);
 INSERT INTO ZIPTAB  VALUES ('135-807', '서울', '강남구', '개포1동 우성3차아파트', '(1∼6동)');
 INSERT INTO ZIPTAB  VALUES ('135-806', '서울', '강남구', '개포1동 우성9차아파트', '(901∼902동)');

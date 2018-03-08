@@ -82,7 +82,7 @@ window.onload = function(){
 						&nbsp;&nbsp;&nbsp;&nbsp; 
 						<input type="reset" value="다시쓰기">
 						&nbsp;&nbsp;&nbsp;&nbsp;
-						<input type="button" value="메인으로" onclick="location.href='../index.html'">
+						<input type="button" value="메인으로" onclick="location.href='../index.jsp'">
 					</td>
 				</tr>
 			</table>

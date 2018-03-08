@@ -13,6 +13,7 @@ int pageSu, spage = 1;
 <meta charset="UTF-8">
 <title>게시판</title>
 <link rel="stylesheet" type="text/css" href="../css/board.css">
+<script src="../js/script.js"></script>
 <script type="text/javascript">
 window.onload = function(){ //jquery로 써도 됨
 	document.getElementById("btnSearch").onclick = function(){
@@ -31,7 +32,7 @@ window.onload = function(){ //jquery로 써도 됨
 <table>
 	<tr>
 		<td>
-		[<a href="../index.html">메인으로</a>]&nbsp;
+		[<a href="../guest/guest_index.jsp">메인으로</a>]&nbsp;
 		[<a href="boardlist.jsp?page=1">최근목록</a>]&nbsp;
 		[<a href="boardwrite.jsp">새글 작성</a>]&nbsp;
 		[<a href="#" onclick="window.open('admin.jsp', '','width=300,height=200,top=200,left=300')">관리자용</a>]

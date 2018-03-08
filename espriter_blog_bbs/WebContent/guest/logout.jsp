@@ -14,7 +14,7 @@ session.removeAttribute("idKey");
 <body>
 <script type="text/javascript">
 alert("로그아웃 성공!!");
-location.href="login.jsp";
+location.href="guest_index.jsp"; // 메인으로 이동함
 </script>
 </body>
 </html>

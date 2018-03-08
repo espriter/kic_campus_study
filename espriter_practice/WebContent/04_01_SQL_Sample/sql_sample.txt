@@ -1,0 +1,88 @@
+create table sangdata(
+code int primary key,
+sang varchar(20),
+su int,
+dan int);
+
+insert into sangdata values(1,'장갑',3,5000);
+insert into sangdata values(2,'벙어리장갑',2,12000);
+insert into sangdata values(3,'가죽장갑',10,50000);
+insert into sangdata values(4,'가죽점퍼',5,650000);
+
+
+create table buser(
+buser_no int(4)  primary key, 
+buser_name varchar(10) not null,
+buser_loc varchar(10),
+buser_tel varchar(15));
+
+insert into buser values(10,'총무부','서울','02-100-1111');
+insert into buser values(20,'영업부','서울','02-100-2222');
+insert into buser values(30,'전산부','서울','02-100-3333');
+insert into buser values(40,'관리부','인천','032-200-4444');
+
+create table sawon(
+sawon_no  int(4) primary key,
+sawon_name varchar(10) not null,
+buser_num int(4) not null,
+sawon_jik  varchar(10) default '사원', 
+sawon_pay int,
+sawon_ibsail date,
+sawon_gen  char(3),
+CONSTRAINT ck_sawon_gen check(sawon_gen='남' or sawon_gen='여')
+);
+
+insert into sawon values(1,'홍길동',10,'사장',8000,'98/09/01','남');
+insert into sawon values(2,'한국남',20,'부장',6200,'01/01/03','남');
+insert into sawon values(3,'이순신',20,'과장',4500,'01/03/03','남');
+insert into sawon values(4,'이미라',30,'대리',3503,'04/01/04','여');
+insert into sawon values(5,'이순라',20,'사원',2850,'09/08/05','여');
+insert into sawon values(6,'김이화',20,'사원',2850,'09/08/05','여');
+insert into sawon values(7,'김부만',40,'부장',5003,'01/01/05','남');
+insert into sawon values(8,'김기만',20,'과장',4000,'03/01/01','남');
+insert into sawon values(9,'채송화',30,'대리',3507,'02/03/02','여');
+insert into sawon values(10,'박치기',10,'사원',2700,'05/03/02','남');
+insert into sawon values(11,'김부해',30,'사원',1900,'06/09/06','남');
+insert into sawon values(12,'박별나',40,'과장',4300,'99/03/05','여');
+insert into sawon values(13,'박명화',10,'대리',3900,'03/05/01','남');
+insert into sawon values(14,'박궁화',40,'사원',2220,'09/01/05','여');
+insert into sawon values(15,'채미리',20,'사원',2200,'05/01/03','여');
+insert into sawon values(16,'이유가',10,'사원',2900,'04/02/01','여');
+
+create table gogek(
+gogek_no  int(4) primary key,
+gogek_name  varchar(10) not null,
+gogek_tel  varchar(20),
+gogek_jumin char(14),
+gogek_damsano  int(4),
+CONSTRAINT FK_gogek_damsano foreign key(gogek_damsano) references sawon(sawon_no)
+);
+
+insert into gogek values(1,'이나라','02-535-2580','850612-1156789',1);
+insert into gogek values(2,'김혜순','02-375-6946','700101-1054225',3);
+insert into gogek values(3,'최부자','02-692-8926','890305-1065773',3);
+insert into gogek values(4,'김해자','032-393-6277','770412-2028677',1);
+insert into gogek values(5,'차일호','02-294-2946','790509-1062677',2);
+insert into gogek values(6,'박상운','032-631-1204','790623-1023566',6);
+insert into gogek values(7,'이분','02-546-2372','880323-2558021',2);
+insert into gogek values(8,'신영래','031-948-0283','790908-1063765',5);
+insert into gogek values(9,'장도리','02-496-1204','870206-2063245',4);
+insert into gogek values(10,'강나루','032-341-2867','780301-1070425',12);
+insert into gogek values(11,'이영희','02-195-1764','810103-2070245',3);
+insert into gogek values(12,'이소리','02-296-1066','810609-2046266',9);
+insert into gogek values(13,'배용중','02-691-7692','820920-1052677',1);
+insert into gogek values(14,'김현주','031-167-1884','800128-2062665',2);
+insert into gogek values(15,'송운하','02-887-9344','830301-2013345',2);
+
+create table board(
+num int(5) primary key,
+author varchar(10),
+title varchar(50),
+content varchar(4000),
+bwrite date,
+readcnt int(3) default 0);
+
+insert into board(num,author,title,content,bwrite) values(1,'홍길동','연습','연습내용',now());
+
+commit;
+

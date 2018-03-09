@@ -32,11 +32,17 @@
 		<td><%=m.getname() %></td>
 		<td style="text-align:left;"><%=m.getEmail() %></td>
 		<td><%=m.getPhone() %></td>
-		<td>수정</td>
+		<td><a href="javascript:memUpdate('<%= m.getId() %>')">수정</a></td>
 	<%	
 	}
 	%>	
 </table>
 <%@ include file="../admin/admin_bottom.jsp" %> 
+
+<form action="memberUpdate_admin.jsp" name="updateFrm" method="post">
+<input type="hidden" name="id">
+
+</form>
+
 </body>
 </html>

@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>관리자</title>
 <link rel="stylesheet" type="text/css" href="../css/board.css">
+<script src="../js/script.js"></script>
 <script type="text/javascript">
 
 </script>

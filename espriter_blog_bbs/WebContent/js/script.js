@@ -74,3 +74,39 @@ function inputCheck(){
 	function func1AdminHome(){
 		location.href="../index.jsp";
 	}
+	// 관리자 입장에서 각 회원 수정
+	function memUpdate(id){ 
+		//alert(id);
+		document.updateFrm.id.value = id;
+		document.updateFrm.submit(); // membermanager를 거쳐서 memberupdate_admin.jsp로 보냄
+	}
+	
+	function memberUpdateAdmin(){
+		document.updateFormAdmin.submit();
+	}
+	
+	function memberUpdateCancelAdmin(){
+		location.href ="membermanager.jsp";		
+	}
+	
+	// 관리자에서 상품 처리
+	function productDetail(no){
+		document.detailForm.no.value = no;
+		document.detailForm.submit();
+	}
+	
+	function ProductUpdate(no) { //productdetail.jsp 참고
+		if(confirm("정말 수정하시겠습니까?")){
+		document.updateForm.no.value = no;
+		document.updateForm.submit();
+		}
+		
+	}
+	
+
+	function ProductDelete(no) { // productdetail.jsp 참고
+	if (confirm("정말 삭제하시겠습니까?")) {
+		document.delForm.no.value = no;
+		document.delForm.submit();
+	}
+}

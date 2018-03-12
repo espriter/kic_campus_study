@@ -89,6 +89,13 @@ function inputCheck(){
 		location.href ="membermanager.jsp";		
 	}
 	
+	// 사용자에서 상품처리
+
+	function productDetail_guest(no){
+		document.detailFrm.no.value = no;
+		document.detailFrm.submit();
+	}
+	
 	// 관리자에서 상품 처리
 	function productDetail(no){
 		document.detailForm.no.value = no;
@@ -110,3 +117,21 @@ function inputCheck(){
 		document.delForm.submit();
 	}
 }
+	
+// 카트 처리용
+function cartUpdate(form){
+		form.flag.value = "update";
+		form.submit();
+}
+
+function cartDelete(form){
+		form.flag.value = "del";
+		form.submit();
+}
+
+// 관리자에서 주문 처리
+function orderDetail(no){
+	document.detailFrm.no.value = no; //detailFrm.은 ordermanager.jsp에서 확인 가능
+	document.detailFrm.submit();
+}
+

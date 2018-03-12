@@ -22,7 +22,7 @@ if(memid == null){
 	<tr style="background-color:#F7BE81; text-align:center;">
 		<td><%=log %></td>
 		<td><%=mem %></td>
-		<td><a href="product_list.jsp">상품목록</a></td>
+		<td><a href="productlist.jsp">상품목록</a></td>
 		<td><a href="cartlist.jsp">장바구니</a></td>
 		<td><a href="orderlist.jsp">구매목록</a></td>
 		<td><a href="../board/boardlist.jsp">게시판(Q&A)</a></td>

@@ -135,3 +135,12 @@ function orderDetail(no){
 	document.detailFrm.submit();
 }
 
+function orderUpdate(form){
+	document.detailFrm.flag.value = "update";
+	form.submit();
+}
+
+function orderDelete(form){
+	document.detailFrm.flag.value = "delete";
+	form.submit();
+}

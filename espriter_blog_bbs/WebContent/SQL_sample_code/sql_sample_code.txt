@@ -1,8 +1,8 @@
 ** 하단 명령어를 maria db에 입력하세요 **
-<<db 생성>>
+<<1. db 생성>>
 create database shopdb;
 
-<<2 테이블 생성>>
+<<2. 테이블 생성>>
  CREATE TABLE admin (
          admin_id          varchar(20)          NOT NULL  ,
          admin_passwd      varchar(20)         NOT NULL  ,
@@ -13,7 +13,7 @@ CREATE TABLE shop_order (
          no                int(5)               NOT NULL  auto_increment  ,
          product_no        varchar(5)           NOT NULL    ,
          quantity          varchar(10)          NULL      ,
-         sdate              datetime            NULL      ,
+         sdate             datetime             NULL      ,
          state             varchar(10)          NULL      ,
          id                varchar(10)          NULL      ,
          PRIMARY KEY ( no )

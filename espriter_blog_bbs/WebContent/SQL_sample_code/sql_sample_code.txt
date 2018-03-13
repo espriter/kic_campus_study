@@ -3,7 +3,30 @@
 create database shopdb;
 
 <<2 테이블 생성>>
-create table board(
-num int(5) primary key, name varchar(20) not null, pass varchar(20) not null, mail varchar(30),
-title varchar(50), cont text, bip varchar(20), bdate varchar(20),readcnt int(3),
-gnum int(5), onum int(3), nested int(3));
+ CREATE TABLE admin (
+         admin_id          varchar(20)          NOT NULL  ,
+         admin_passwd      varchar(20)         NOT NULL  ,
+         PRIMARY KEY ( admin_id )
+);
+
+CREATE TABLE shop_order (
+         no                int(5)               NOT NULL  auto_increment  ,
+         product_no        varchar(5)           NOT NULL    ,
+         quantity          varchar(10)          NULL      ,
+         sdate              datetime            NULL      ,
+         state             varchar(10)          NULL      ,
+         id                varchar(10)          NULL      ,
+         PRIMARY KEY ( no )
+);
+ 
+ 
+CREATE TABLE shop_product (
+         no                int(5)               NOT NULL  auto_increment  ,
+         name              varchar(20)          NULL      ,
+         price             varchar(10)          NULL      ,
+         detail            text                 NULL      ,
+         sdate             datetime             NULL      ,
+         stock             varchar(10)          NULL      ,
+         image             varchar(20)          NULL      ,
+         PRIMARY KEY ( no )
+);

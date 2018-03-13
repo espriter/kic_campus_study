@@ -1,8 +1,32 @@
 ** 하단 명령어를 maria db에 입력하세요 **
-<<1. db 생성>>
+<<<< 1. db 생성>>>>
 create database shopdb;
 
-<<2. 테이블 생성>>
+<<<< 2. 게시판 테이블 생성 >>>>
+create table board(
+num int(5) primary key, name varchar(20) not null, pass varchar(20) not null, mail varchar(30),
+title varchar(50), cont text, bip varchar(20), bdate varchar(20),readcnt int(3),
+gnum int(5), onum int(3), nested int(3));
+
+<<<< 3. 회원 테이블 및 우편번호 테이블 생성 >>>>
+create table member(
+id varchar(20) primary key,
+passwd varchar(20),
+name varchar(20),
+email varchar(40),
+phone varchar(30),
+zipcode varchar(20),
+address varchar(100),
+job varchar(20));
+
+create table ziptab(
+zipcode char(7),
+area1 varchar(10),
+area2 varchar(20),
+area3 varchar(30),
+area4 varchar(50));
+
+<<<< 4. 관리자 테이블 및 주문 관련 테이블 생성>>>>
  CREATE TABLE admin (
          admin_id          varchar(20)          NOT NULL  ,
          admin_passwd      varchar(20)         NOT NULL  ,

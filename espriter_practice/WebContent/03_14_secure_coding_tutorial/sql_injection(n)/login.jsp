@@ -31,5 +31,6 @@ function loginChk(){
 사번 : <input type="text" name="no"><br>
 이름 : <input type="text" name="name"><br>
 <input type="button" value="로그인" onclick="loginChk()">
+</form>
 </body>
 </html>

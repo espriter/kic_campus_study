@@ -119,7 +119,7 @@ public class MemberMgr {
 			pstmt.setString(1, id);
 			pstmt.setString(2, passwd);
 			rs = pstmt.executeQuery();
-			b = rs.next();	
+			b = rs.next();
 		} catch (Exception e) {
 			// TODO: handle exception
 		}finally {

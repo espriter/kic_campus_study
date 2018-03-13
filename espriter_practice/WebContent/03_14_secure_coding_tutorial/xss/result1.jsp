@@ -12,15 +12,13 @@
 request.setCharacterEncoding("utf-8");
 String name = request.getParameter("name");
 
-if(name !=null){
-	name = name.replaceAll("<", "&lt;");
-	name = name.replaceAll(">", "&lt;");
-}else{
-	return;
-}
 %>
 
 </p>
 이름은 <%= name %>
+<script type="text/javascript">
+var id = pika;
+var pw = piko;
+</script>
 </body>
 </html>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dev">
+
+ <select id="selectDataAll" resultType="dto">
+  select * from sangdata order by code asc
+ </select>
+ 
+ <select id="selectDataById" parameterType="string" resultType="dto">
+  select code,sang,su,dan from sangdata where code = #{code}
+ </select>
+ 
+ <insert id="insertData" parameterType="formbean">
+  insert into sangdata(code,sang,su,dan) values(#{code},#{sang},#{su},#{dan})
+ </insert>
+ 
+ <update id="updateData" parameterType="formbean">
+  update sangdata set sang=#{sang},su=#{su},dan=#{dan} where code=#{code}
+ </update>
+ 
+ <delete id="deleteData" parameterType="int">
+  delete from sangdata where code=#{code}
+ </delete>
+</mapper>

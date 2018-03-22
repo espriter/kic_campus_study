@@ -1,6 +1,6 @@
 <%@page import="pack.player.PlayerMgr"%>
-<%@page import="pack.player.PlayerBean"%>
 <%@page import="java.util.ArrayList"%>
+<%@page import="pack.player.PlayerBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <jsp:useBean id="mgr" class="pack.player.PlayerMgr" />

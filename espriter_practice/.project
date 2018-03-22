@@ -28,4 +28,16 @@
 		<nature>org.eclipse.wst.common.project.facet.core.nature</nature>
 		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>WebContent/99_test/playerinfo.html</name>
+			<type>1</type>
+			<location>G:/내 드라이브/[01] 시작점/홈페이지 테스트/playerinfo.html</location>
+		</link>
+		<link>
+			<name>WebContent/99_test/staffinfo.html</name>
+			<type>1</type>
+			<location>G:/내 드라이브/[01] 시작점/홈페이지 테스트/staffinfo.html</location>
+		</link>
+	</linkedResources>
 </projectDescription>

@@ -1,0 +1,20 @@
+@charset "UTF-8";
+@import url('http://fonts.googleapis.com/earlyaccess/nanumgothic.css');
+ 
+body{font-family:'Nanum Gothic';}
+ 
+table{font-family:'Nanum Gothic';
+	cellpadding="0";
+	cellspacing="0";
+	}
+
+td 	{font-family:'Nanum Gothic';
+	 font-weight :bold;
+	 font-size : 18px;
+	 text-decoration: none;
+	}
+
+p{
+	
+	
+}

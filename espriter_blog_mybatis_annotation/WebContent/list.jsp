@@ -11,7 +11,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>** 회원 정보(MyBatis) **</title>
 </head>
 <body>
 <h2> ** 회원 정보(MyBatis) **</h2>

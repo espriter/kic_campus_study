@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+	<!-- Target class : 핵심 로직 -->
+	<bean id ="MessageImpl" class="pack.MessageImpl">
+		<property name="name" value="박치기"/>
+	</bean>
+	
+	<!-- AOP 적용 -->
+	<!-- Advice(Aspect를 클래스화) -->
+	<bean id="MyAdvice" class="pack.MyAdvice"/>
+	<!-- proxy를 통해 접근 -->
+	<bean id="proxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="target">
+			<ref bean="MessageImpl"/>
+		</property>
+		<property name="interceptorNames">
+			<list>
+				<value>hiAdvisor</value> <!-- Advisor를 기술 -->	
+			</list>
+		</property>	
+	</bean>
+	
+	<!-- Advisor(Advice + pointcut) -->
+	<bean id="hiAdvisor" class="org.springframework.aop.support.DefaultPointcutAdvisor">
+		<property name="advice">
+			<ref bean="MyAdvice"/>
+		</property>
+		
+		<property name="pointcut">
+			<bean class="org.springframework.aop.support.JdkRegexpMethodPointcut">
+				<property name="pattern">
+					<value>.*sayHi*.</value>
+		</property>		
+			
+			</bean>
+		</property>
+	</bean>
+
+</beans>

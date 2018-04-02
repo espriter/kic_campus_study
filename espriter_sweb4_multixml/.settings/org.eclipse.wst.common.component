@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-        
-    <wb-module deploy-name="sweb6_summary-0.0.1-SNAPSHOT">
-                
+    <wb-module deploy-name="sweb4_multixml-0.0.1-SNAPSHOT">
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
-                
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
-                
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-                
-        <property name="java-output-path" value="/sweb6_summary/build/classes"/>
-        <property name="context-root" value="espriter_sweb6_summary"/>
-            
+        <property name="context-root" value="sweb4_multixml"/>
+        <property name="java-output-path" value="/sweb4_multixml/build/classes"/>
     </wb-module>
-    
 </project-modules>

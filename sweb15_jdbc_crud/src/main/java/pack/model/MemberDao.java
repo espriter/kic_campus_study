@@ -87,7 +87,7 @@ public class MemberDao extends JdbcDaoSupport{
 	// 수정 : jdbcDaoSupport
 	public void upData(MemberBean bean) {
 		String sql = "update member set passwd=?, name=? where id=?";
-		getJdbcTemplate().update(sql, new Object[] {bean.getPasswd(), bean.getId(),bean.getRegdate()});
+		getJdbcTemplate().update(sql, new Object[] {bean.getPasswd(), bean.getName(),bean.getId()});
 	}
 	
 	// 삭제 : jdbcDaoSupport

@@ -102,8 +102,43 @@ public class BoardDao implements BoardInter{
 	}
 	
 	public BoardDto detail(String num) {
-		// TODO Auto-generated method stub
-		return null;
+		BoardDto dto = null;
+		try {
+			// 상세보기 시 조회수 증가
+			String sql = "update miniboard set readcnt=readcnt + 1 where num=?";
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, num);
+			pstmt.executeUpdate();
+			
+			sql = "select * from miniboard where num=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, num);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				dto = new BoardDto();
+				dto.setNum(rs.getInt("num"));
+				dto.setAuthor(rs.getString("author"));
+				dto.setTitle(rs.getString("title"));
+				dto.setContent(rs.getString("content"));
+				dto.setBwrite(rs.getString("bwriter"));
+				dto.setReadcnt(rs.getInt("readcnt"));
+				
+			}
+			
+		} catch (Exception e) {
+			System.out.println("detail err " + e);
+		}finally {
+			try {
+				if (rs != null) rs.close();
+				if (pstmt != null) pstmt.close();
+				if (conn != null) conn.close();
+
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
+		}
+		return dto;
 	}
 	
 	public boolean writeData(BoardBean bean) {
@@ -133,13 +168,54 @@ public class BoardDao implements BoardInter{
 	}
 	
 	public boolean update(BoardBean bean) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean b = false;
+		try {
+			String sql = "update miniboard set author=?, title=?, content=? where num=?";
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, bean.getAuthor());
+			pstmt.setString(2, bean.getTitle());
+			pstmt.setString(3, bean.getContent());
+			pstmt.setInt(4, bean.getNum());
+			if(pstmt.executeUpdate() > 0) b = true;
+			
+		} catch (Exception e) {
+			System.out.println("update err " + e);
+		}finally {
+			try {
+				if (rs != null) rs.close();
+				if (pstmt != null) pstmt.close();
+				if (conn != null) conn.close();
+
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
+		}
+		return b;
 	}
 	
 	public boolean delete(String num) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean b = false;
+		try {
+			String sql = "delete from miniboard where num=?";
+			conn= ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, num);
+			if(pstmt.executeUpdate() > 0) b = true;
+			
+		} catch (Exception e) {
+			System.out.println("update err " + e);
+		}finally {
+			try {
+				if (rs != null) rs.close();
+				if (pstmt != null) pstmt.close();
+				if (conn != null) conn.close();
+
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
+		}
+		return b;
 	}
 	
 	

@@ -16,7 +16,7 @@
 		<c:forEach var="b" items="${list}">
 		<tr>
 			<td>${b.num}</td>
-			<td><a href="detail.jsp?${b.num}">${b.title}</a></td>
+			<td><a href="detail?num=${b.num}">${b.title}</a></td>
 			<td>${b.author}</td>
 			<td>${b.readcnt}</td>
 		</tr>

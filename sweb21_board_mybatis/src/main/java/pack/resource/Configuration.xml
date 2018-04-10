@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+ <properties resource="pack/resource/db.properties" />
+ 
+ <typeAliases>
+ 	<typeAlias type="pack.model.BoardDto" alias="dto"/>
+ 	<typeAlias type="pack.controller.BoardBean" alias="formBean"/>
+ </typeAliases>
+ 
+ <mappers>
+  <mapper resource="pack/resource/DataMapper.xml" />
+ </mappers>
+</configuration>

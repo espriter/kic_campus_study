@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dev">
+ <select id="selectList" resultType="dto">
+  select * from board order by gnum desc, onum asc
+ </select>
+ 
+ <select id="searchList" parameterType="formBean" resultType="dto">
+  select * from board 
+  where ${searchName} like concat('%',#{searchValue},'%')
+  order by gnum desc, onum asc
+ </select>
+ 
+ <select id="selectOne" parameterType="string" resultType="dto">
+  select * from board where num=#{num}
+ </select>
+ 
+ <insert id="insertData" parameterType="formBean">
+  insert into board 
+  values(#{num},#{name},#{pass},#{mail},#{title},
+  		 #{cont},#{bip},#{bdate},0,#{gnum},0,0)
+ </insert>
+ 
+ <update id="updateData" parameterType="formBean">
+  update board set name=#{name},mail=#{mail},
+  			title=#{title},cont=#{cont} where num=#{num}
+ </update>
+ 
+ <delete id="deleteData" parameterType="string">
+  delete from board where num=#{num}
+ </delete>
+ 
+ <!-- 가장 큰 번호 -->
+ <select id="currentMaxNum" resultType="integer">
+  select max(num) from board
+ </select>
+ 
+ <!-- 전체 자료 수 -->
+ <select id="totalCnt" resultType="integer">
+  select count(*) from board
+ </select>
+ 
+ <!-- 조회수 증가 -->
+ <update id="updateReadcnt" parameterType="string">
+  update board set readcnt = readcnt + 1 where num=#{num} 
+ </update>
+ 
+ <!-- 수정 시 비밀번호 검사 -->
+ <select id="selectpass" parameterType="string" resultType="string">
+  select pass from board where num=#{num}
+ </select> 
+ 
+ <!-- 댓글용 -->
+ <update id="updateOnum" parameterType="formBean">
+  update board set onum=onum + 1
+  where onum >= #{onum} and gnum = #{gnum}
+ </update>
+ 
+ <!-- 댓글 저장 -->
+ <insert id="insertReData" parameterType="formBean">
+  insert into board 
+  values(#{num},#{name},#{pass},#{mail},#{title},
+  		 #{cont},#{bip},#{bdate},0,#{gnum},#{onum},#{nested})
+ </insert>
+</mapper>
+
+
+
+
+

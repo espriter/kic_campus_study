@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dev">
+ <select id="sawonList" resultType="sdto" parameterType="string">
+  select s.sawon_no sawon_no, s.sawon_name sawon_name,
+   b.buser_tel buser_tel, s.sawon_jik sawon_jik, 
+   (select count(*) from gogek where gogek_damsano = s.sawon_no) gogek_ct 
+    from buser b inner join sawon s on b.buser_no = s.buser_num where b.buser_name = #{buser_name}
+ </select>
+ 
+ <select id="gogekList" resultType="gdto" parameterType="string">
+ 	select * from gogek where gogek_damsano = #{sawon_no};
+ </select>
+
+</mapper>
+
+
+
+
+

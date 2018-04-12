@@ -13,8 +13,8 @@
             <bean id ="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
             	<property name="host" value="smtp.gmail.com"/> <!-- smtp 서버명 -->
             	<property name="port" value="587"/> <!-- 포트 번호 -->
-            	<property name="username" value="acorngoodjob@gmail.com"/> <!-- id(일반적인 id가 아니니 확인 필요) -->
-            	<property name="password" value="acorn1234test"/> <!-- 비밀번호 -->
+            	<property name="username" value="로그인 ID"/> <!-- id(일반적인 id가 아니니 확인 필요) -->
+            	<property name="password" value="비밀번호"/> <!-- 비밀번호 -->
             	<property name="javaMailProperties">
             		<props>
             			<prop key="mail.smtp.starttls.enable">true</prop>

@@ -12,6 +12,7 @@ import pack.model.BoardDto;
 
 @Controller
 public class SearchController {
+
 	@Autowired
 	private BoardDaoInter inter;
 	
@@ -20,10 +21,22 @@ public class SearchController {
 		ArrayList<BoardDto> list = inter.getSearch(bean);
 		
 		ModelAndView view = new ModelAndView("list","data",list);
-		view.addObject("page", "1");
+		view.addObject("page","1");
 		return view;
+		
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 

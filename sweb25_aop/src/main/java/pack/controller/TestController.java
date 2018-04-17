@@ -10,19 +10,37 @@ import pack.model.MyModelInter;
 
 @Controller
 public class TestController {
-		@Autowired
-		@Qualifier("myModel")
-		private MyModelInter modelInter;
+
+	@Autowired
+	@Qualifier("myModel")
+	private MyModelInter modelInter;
+	
+	@RequestMapping("test")
+	public ModelAndView abc() {
+		String r1 = modelInter.processMsg();
+		String r2 = modelInter.businessMsg();
 		
-		@RequestMapping("test")
-		public ModelAndView abc() {
-			String r1 = modelInter.processMsg();
-			String r2 = modelInter.processMsg();
-			
-			ModelAndView view = new ModelAndView();
-			view.setViewName("list");
-			view.addObject("data1", r1);
-			view.addObject("data2", r2);
-			return view;
-		}
+		ModelAndView view = new  ModelAndView();
+		view.setViewName("list");
+		view.addObject("data1",r1);
+		view.addObject("data2",r2);
+		return view;
+		
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

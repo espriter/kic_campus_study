@@ -11,6 +11,6 @@
 		<title>Welcome</title>
 	</head> 
 	<body>
-		<a href="test">test</a>
+		<a href="test">Click to enter</a>
 	</body>
 </html>

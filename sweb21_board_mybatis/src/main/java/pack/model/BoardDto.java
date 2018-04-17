@@ -3,6 +3,7 @@ package pack.model;
 public class BoardDto {
 	private String name, pass, mail, title, cont, bip, bdate;
 	private int num, readcnt, gnum, onum, nested;
+
 	
 	public String getName() {
 		return name;
@@ -76,4 +77,5 @@ public class BoardDto {
 	public void setNested(int nested) {
 		this.nested = nested;
 	}
+
 }

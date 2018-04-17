@@ -10,15 +10,16 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
 
-    
-         <context:component-scan base-package="pack.model"/>
+
          <context:component-scan base-package="pack.controller"/>
-         <context:component-scan base-package="pack.aspect"/>
+         <context:component-scan base-package="pack.model" />
+         <context:component-scan base-package="pack.aspect" />
 
 
     <mvc:annotation-driven />
-    <!-- aop 적용 -->
-    <aop:aspectj-autoproxy/>
+    
+    <!--  aop 적용  -->
+    <aop:aspectj-autoproxy />
 
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 	        <!-- Example: a logical view name of 'showMessage' is mapped to '/WEB-INF/jsp/showMessage.jsp' -->

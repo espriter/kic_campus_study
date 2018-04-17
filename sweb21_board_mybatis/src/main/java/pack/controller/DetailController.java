@@ -10,16 +10,17 @@ import pack.model.BoardDaoInter;
 
 @Controller
 public class DetailController {
+
 	@Autowired
 	private BoardDaoInter inter;
 	
 	@RequestMapping("detail")
-	public Model detailPro(Model model, @RequestParam("num")String num,
-												@RequestParam("page")String page) {
+	public Model detailPro(Model model, @RequestParam("num") String num, @RequestParam("page") String page) {
 		//조회수 증가
 		inter.updateReadcnt(num);
 		
-		model.addAttribute("data",inter.getDetail(num));
+		
+		model.addAttribute("data", inter.getDetail(num));
 		model.addAttribute("page",page);
 		return model;
 	}

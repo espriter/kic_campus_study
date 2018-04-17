@@ -7,6 +7,15 @@ public class BoardBean {
 	private int num, readcnt, gnum, onum, nested;
 	private String searchName, searchValue;  //검색용
 	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getPass() {
+		return pass;
+	}
 	public String getSearchName() {
 		return searchName;
 	}
@@ -18,15 +27,6 @@ public class BoardBean {
 	}
 	public void setSearchValue(String searchValue) {
 		this.searchValue = searchValue;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getPass() {
-		return pass;
 	}
 	public void setPass(String pass) {
 		this.pass = pass;

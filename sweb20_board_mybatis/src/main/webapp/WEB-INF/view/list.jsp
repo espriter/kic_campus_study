@@ -18,6 +18,7 @@ int pageSu, spage = 1;
 <table>
 	<tr>
 		<td>
+		[<a href="signup.jsp">회원가입</a>]&nbsp;
 		[<a href="index">메인으로</a>]&nbsp;
 		[<a href="list?page=1">최근목록</a>]&nbsp;
 		[<a href="boardwrite.jsp">새글작성</a>]&nbsp;

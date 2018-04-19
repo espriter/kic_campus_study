@@ -27,7 +27,7 @@ public class WriteController {
 		bean.setGnum(newNum); // 그룹번호
 
 		if (inter.insert(bean)) {
-			return "redirect:/list?page=1";
+			return "redirect:/i";
 		} else {
 			return "err";
 		}

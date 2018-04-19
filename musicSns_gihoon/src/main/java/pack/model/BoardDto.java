@@ -1,81 +1,63 @@
 package pack.model;
 
 public class BoardDto {
-	private String name, pass, mail, title, cont, bip, bdate;
-	private int num, readcnt, gnum, onum, nested;
+	private String user_no, user_id, user_name, user_password, user_home, user_image, user_intro;
 
+	public String getUser_no() {
+		return user_no;
+	}
+
+	public void setUser_no(String user_no) {
+		this.user_no = user_no;
+	}
+
+	public String getUser_id() {
+		return user_id;
+	}
+
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
+	}
+
+	public String getUser_name() {
+		return user_name;
+	}
+
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
+	}
+
+	public String getUser_password() {
+		return user_password;
+	}
+
+	public void setUser_password(String user_password) {
+		this.user_password = user_password;
+	}
+
+	public String getUser_home() {
+		return user_home;
+	}
+
+	public void setUser_home(String user_home) {
+		this.user_home = user_home;
+	}
+
+	public String getUser_image() {
+		return user_image;
+	}
+
+	public void setUser_image(String user_image) {
+		this.user_image = user_image;
+	}
+
+	public String getUser_intro() {
+		return user_intro;
+	}
+
+	public void setUser_intro(String user_intro) {
+		this.user_intro = user_intro;
+	}
 	
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getPass() {
-		return pass;
-	}
-	public void setPass(String pass) {
-		this.pass = pass;
-	}
-	public String getMail() {
-		return mail;
-	}
-	public void setMail(String mail) {
-		this.mail = mail;
-	}
-	public String getTitle() {
-		return title;
-	}
-	public void setTitle(String title) {
-		this.title = title;
-	}
-	public String getCont() {
-		return cont;
-	}
-	public void setCont(String cont) {
-		this.cont = cont;
-	}
-	public String getBip() {
-		return bip;
-	}
-	public void setBip(String bip) {
-		this.bip = bip;
-	}
-	public String getBdate() {
-		return bdate;
-	}
-	public void setBdate(String bdate) {
-		this.bdate = bdate;
-	}
-	public int getNum() {
-		return num;
-	}
-	public void setNum(int num) {
-		this.num = num;
-	}
-	public int getReadcnt() {
-		return readcnt;
-	}
-	public void setReadcnt(int readcnt) {
-		this.readcnt = readcnt;
-	}
-	public int getGnum() {
-		return gnum;
-	}
-	public void setGnum(int gnum) {
-		this.gnum = gnum;
-	}
-	public int getOnum() {
-		return onum;
-	}
-	public void setOnum(int onum) {
-		this.onum = onum;
-	}
-	public int getNested() {
-		return nested;
-	}
-	public void setNested(int nested) {
-		this.nested = nested;
-	}
 
 }

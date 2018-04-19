@@ -12,5 +12,6 @@
 	</head> 
 	<body>
 		<a href="list?page=1">게시판</a>
+		<!-- <a href="write">게시판</a> -->
 	</body>
 </html>

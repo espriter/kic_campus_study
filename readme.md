@@ -6,7 +6,13 @@ espriter_blog_practice
 
 ----------
 
+> **19/01/08 기준:**
 
+> - Dependency 관련 취약점 알림이 있어 알려드립니다.
+> - com.fasterxml.jackson.core:jackson-databind 의 버전 업데이트가 되지 않아 취약하다는 메일을 받았습니다.
+> - 하지만 지금은 관리하지 않는 repo라서 별도 업데이트를 하진 않을 계획입니다.
+> - 하지만 지금은 관리하지 않는 repo라서 별도 업데이트를 하진 않을 계획입니다.
+> - 자세한 사항은 https://github.com/espriter/espriter_blog_practice/network/alert/sweb27_fileupdown/work/springsou/sweb27_fileupdown/target/m2e-wtp/web-resources/META-INF/maven/org.springframework.samples.service.service/sweb27_fileupdown/pom.xml/com.fasterxml.jackson.core:jackson-databind/open 에서 확인해주세요.
 
 
 > **18/07/20 기준:**
